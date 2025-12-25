@@ -107,6 +107,22 @@
             background-color: #c0392b;
         }
 
+        .btn-warning {
+            background-color: #f39c12;
+        }
+
+        .btn-warning:hover {
+            background-color: #d68910;
+        }
+
+        .btn-info {
+            background-color: #3498db;
+        }
+
+        .btn-info:hover {
+            background-color: #2980b9;
+        }
+
         /* Header Styles */
         header {
             background-color: #fff;
@@ -1202,6 +1218,278 @@
             font-size: 14px;
         }
 
+        /* Orders Table */
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .orders-table th,
+        .orders-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .orders-table th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .orders-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-processing {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-shipped {
+            background-color: #fce7f3;
+            color: #9d174d;
+        }
+
+        .status-delivered {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status-cancelled {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Admin Dashboard */
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .stat-card .change {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .stat-card.income .value {
+            color: #10b981;
+        }
+
+        .stat-card.orders .value {
+            color: #3b82f6;
+        }
+
+        .stat-card.products .value {
+            color: #8b5cf6;
+        }
+
+        .stat-card.customers .value {
+            color: #f59e0b;
+        }
+
+        /* Admin Charts */
+        .admin-charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .chart-container h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        /* Recent Activity */
+        .recent-activity {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 40px;
+        }
+
+        .recent-activity h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-list li {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .activity-list li:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .activity-icon i {
+            color: #666;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Inventory Management */
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .inventory-table th,
+        .inventory-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .inventory-table th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .stock-level {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stock-high {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .stock-medium {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .stock-low {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Customer Management */
+        .customers-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .customers-table th,
+        .customers-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .customers-table th {
+            background-color: #f9f9f9;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .customer-status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status-inactive {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
         /* Footer */
         footer {
             background-color: #000;
@@ -1360,6 +1648,10 @@
             .preview-area {
                 min-height: 400px;
             }
+
+            .admin-charts {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1450,6 +1742,17 @@
             .cart-modal {
                 width: 100%;
             }
+
+            .admin-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .orders-table,
+            .inventory-table,
+            .customers-table {
+                display: block;
+                overflow-x: auto;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1503,6 +1806,14 @@
             .admin-tabs {
                 flex-direction: column;
                 gap: 10px;
+            }
+
+            .admin-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-product-actions {
+                flex-direction: column;
             }
         }
 
@@ -2049,42 +2360,322 @@
         <section id="admin-section" class="section admin-panel" style="display: none;">
             <div class="container">
                 <div class="admin-header">
-                    <h2 class="section-title">Admin Panel</h2>
-                    <button class="btn" id="back-to-shop">Back to Shop</button>
+                    <h2 class="section-title">Admin Dashboard</h2>
+                    <div>
+                        <button class="btn btn-outline" id="export-data">Export Data</button>
+                        <button class="btn" id="back-to-shop">Back to Shop</button>
+                    </div>
                 </div>
+                
+                <!-- Admin Stats -->
+                <div class="admin-stats" id="admin-stats">
+                    <div class="stat-card income">
+                        <h3>Total Income</h3>
+                        <div class="value" id="total-income">₹0</div>
+                        <div class="change" id="income-change">+0% from last month</div>
+                    </div>
+                    <div class="stat-card orders">
+                        <h3>Total Orders</h3>
+                        <div class="value" id="total-orders">0</div>
+                        <div class="change" id="orders-change">+0% from last month</div>
+                    </div>
+                    <div class="stat-card products">
+                        <h3>Products</h3>
+                        <div class="value" id="total-products">0</div>
+                        <div class="change" id="products-change">+0% from last month</div>
+                    </div>
+                    <div class="stat-card customers">
+                        <h3>Customers</h3>
+                        <div class="value" id="total-customers">0</div>
+                        <div class="change" id="customers-change">+0% from last month</div>
+                    </div>
+                </div>
+                
                 <div class="admin-tabs">
-                    <div class="admin-tab active" data-tab="products">Manage Products</div>
+                    <div class="admin-tab active" data-tab="dashboard">Dashboard</div>
+                    <div class="admin-tab" data-tab="products">Manage Products</div>
                     <div class="admin-tab" data-tab="add-product">Add Product</div>
-                    <div class="admin-tab" data-tab="orders">View Orders</div>
+                    <div class="admin-tab" data-tab="orders">Manage Orders</div>
+                    <div class="admin-tab" data-tab="inventory">Inventory</div>
+                    <div class="admin-tab" data-tab="customers">Customers</div>
+                    <div class="admin-tab" data-tab="analytics">Analytics</div>
                 </div>
-                <div class="admin-content active" id="products-tab">
+                
+                <!-- Dashboard Tab -->
+                <div class="admin-content active" id="dashboard-tab">
+                    <div class="admin-charts">
+                        <div class="chart-container">
+                            <h3>Sales Overview</h3>
+                            <div class="chart-placeholder" id="sales-chart">
+                                Sales Chart Placeholder
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Top Products</h3>
+                            <div class="chart-placeholder" id="products-chart">
+                                Products Chart Placeholder
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recent-activity">
+                        <h3>Recent Activity</h3>
+                        <ul class="activity-list" id="recent-activity-list">
+                            <!-- Recent activity will be loaded here -->
+                        </ul>
+                    </div>
+                    
+                    <div class="recent-orders mt-40">
+                        <h3>Recent Orders</h3>
+                        <div class="orders-table-container">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashboard-orders-list">
+                                    <!-- Recent orders will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Manage Products Tab -->
+                <div class="admin-content" id="products-tab">
                     <h3 class="mb-30">Product Management</h3>
                     <div class="products-list" id="admin-products-list">
                         <!-- Admin product cards will be loaded here -->
                     </div>
                 </div>
+                
+                <!-- Add Product Tab -->
                 <div class="admin-content" id="add-product-tab">
                     <h3 class="mb-30">Add New Product</h3>
                     <form class="product-form" id="add-product-form">
-                        <input type="text" id="product-name" placeholder="Product Name" required>
-                        <textarea id="product-description" placeholder="Product Description" required></textarea>
-                        <input type="number" id="product-price" placeholder="Price" min="0" step="0.01" required>
-                        <select id="product-category" required>
-                            <option value="">Select Category</option>
-                            <option value="Hoodies">Hoodies</option>
-                            <option value="T-Shirts">T-Shirts</option>
-                            <option value="Suit Sets">Suit Sets</option>
-                            <option value="Sarees">Sarees</option>
-                            <option value="Kurtis">Kurtis</option>
-                        </select>
-                        <input type="text" id="product-image" placeholder="Image URL" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-name">Product Name *</label>
+                                <input type="text" id="product-name" placeholder="Product Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-price">Price *</label>
+                                <input type="number" id="product-price" placeholder="Price" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product-description">Description *</label>
+                            <textarea id="product-description" placeholder="Product Description" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-category">Category *</label>
+                                <select id="product-category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="Hoodies">Hoodies</option>
+                                    <option value="T-Shirts">T-Shirts</option>
+                                    <option value="Suit Sets">Suit Sets</option>
+                                    <option value="Sarees">Sarees</option>
+                                    <option value="Kurtis">Kurtis</option>
+                                    <option value="Accessories">Accessories</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-stock">Stock Quantity *</label>
+                                <input type="number" id="product-stock" placeholder="Stock Quantity" min="0" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-image">Image URL *</label>
+                                <input type="text" id="product-image" placeholder="Image URL" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-color">Color</label>
+                                <input type="text" id="product-color" placeholder="Color (optional)">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product-size">Available Sizes</label>
+                            <input type="text" id="product-size" placeholder="S, M, L, XL (optional)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product-tags">Tags</label>
+                            <input type="text" id="product-tags" placeholder="tags, separated, by, commas">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-sku">SKU</label>
+                                <input type="text" id="product-sku" placeholder="Product SKU (optional)">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="product-featured"> Featured Product
+                                </label>
+                            </div>
+                        </div>
+                        
                         <button type="submit" class="btn">Add Product</button>
                     </form>
                 </div>
+                
+                <!-- Manage Orders Tab -->
                 <div class="admin-content" id="orders-tab">
-                    <h3 class="mb-30">Recent Orders</h3>
-                    <div id="orders-list">
-                        <!-- Orders will be loaded here -->
+                    <div class="admin-header">
+                        <h3>Order Management</h3>
+                        <div class="order-filters">
+                            <select id="order-filter" class="form-group" style="width: auto;">
+                                <option value="all">All Orders</option>
+                                <option value="pending">Pending</option>
+                                <option value="processing">Processing</option>
+                                <option value="shipped">Shipped</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="orders-table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-list">
+                                <!-- Orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Inventory Management Tab -->
+                <div class="admin-content" id="inventory-tab">
+                    <h3 class="mb-30">Inventory Management</h3>
+                    <div class="inventory-table-container">
+                        <table class="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>SKU</th>
+                                    <th>Category</th>
+                                    <th>Stock</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-list">
+                                <!-- Inventory items will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="low-stock-alert mt-40">
+                        <h3>Low Stock Alert</h3>
+                        <div id="low-stock-items">
+                            <!-- Low stock items will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Customer Management Tab -->
+                <div class="admin-content" id="customers-tab">
+                    <h3 class="mb-30">Customer Management</h3>
+                    <div class="customers-table-container">
+                        <table class="customers-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Orders</th>
+                                    <th>Total Spent</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customers-list">
+                                <!-- Customers will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Analytics Tab -->
+                <div class="admin-content" id="analytics-tab">
+                    <h3 class="mb-30">Sales Analytics</h3>
+                    <div class="analytics-filters mb-30">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="analytics-period">Period</label>
+                                <select id="analytics-period">
+                                    <option value="7">Last 7 Days</option>
+                                    <option value="30">Last 30 Days</option>
+                                    <option value="90">Last 90 Days</option>
+                                    <option value="365">Last Year</option>
+                                    <option value="custom">Custom Range</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="custom-date-range" style="display: none;">
+                                <label for="start-date">Start Date</label>
+                                <input type="date" id="start-date">
+                                <label for="end-date">End Date</label>
+                                <input type="date" id="end-date">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-charts">
+                        <div class="chart-container">
+                            <h3>Revenue Trend</h3>
+                            <div class="chart-placeholder">
+                                Revenue Chart Placeholder
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Order Volume</h3>
+                            <div class="chart-placeholder">
+                                Order Volume Chart Placeholder
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-summary mt-40">
+                        <h3>Summary</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Average Order Value</label>
+                                <div class="value" id="avg-order-value">₹0</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Conversion Rate</label>
+                                <div class="value" id="conversion-rate">0%</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Customer Retention</label>
+                                <div class="value" id="retention-rate">0%</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2202,6 +2793,17 @@
         </div>
     </div>
 
+    <!-- Order Details Modal -->
+    <div class="profile-modal" id="order-details-modal">
+        <div class="profile-content" style="max-width: 600px;">
+            <button class="close-btn" id="close-order-details" style="position: absolute; top: 15px; right: 15px;">&times;</button>
+            <h2 class="mb-30">Order Details</h2>
+            <div id="order-details-content">
+                <!-- Order details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
     <script>
         // ============================================
         // APPLICATION DATA & CONFIGURATION
@@ -2210,14 +2812,14 @@
             appName: 'OKAYBRUH',
             whatsappNumber: '916369035633',
             whatsappUrl: 'https://wa.me/916369035633',
-            adminEmail: 'admin@okaybruh.com',
+            adminEmail: 'admins@okaybruh.com',
             basePrice: 1999,
             freeShippingThreshold: 6000,
             upiId: 'shabaries2866@oksbi',
             storeName: 'OKAYBRUH Fashion Store'
         };
 
-        // Initial products data
+        // Initial products data with more details
         let products = JSON.parse(localStorage.getItem('OKAYBRUH_products')) || [
             { 
                 id: 1, 
@@ -2225,7 +2827,14 @@
                 price: 2499, 
                 category: "Hoodies", 
                 image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", 
-                description: "Premium quality black hoodie with comfortable fit and modern design."
+                description: "Premium quality black hoodie with comfortable fit and modern design.",
+                stock: 50,
+                sku: "HB001",
+                color: "Black",
+                sizes: ["S", "M", "L", "XL"],
+                tags: ["hoodie", "black", "premium"],
+                featured: true,
+                createdAt: "2025-01-15"
             },
             { 
                 id: 2, 
@@ -2233,7 +2842,14 @@
                 price: 1299, 
                 category: "T-Shirts", 
                 image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", 
-                description: "White t-shirt with unique graphic design and comfortable fabric."
+                description: "White t-shirt with unique graphic design and comfortable fabric.",
+                stock: 100,
+                sku: "TS001",
+                color: "White",
+                sizes: ["S", "M", "L"],
+                tags: ["tshirt", "graphic", "white"],
+                featured: true,
+                createdAt: "2025-01-20"
             },
             { 
                 id: 3, 
@@ -2241,7 +2857,14 @@
                 price: 3999, 
                 category: "Suit Sets", 
                 image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", 
-                description: "Elegant designer suit set for special occasions."
+                description: "Elegant designer suit set for special occasions.",
+                stock: 25,
+                sku: "SS001",
+                color: "Blue",
+                sizes: ["M", "L", "XL"],
+                tags: ["suit", "designer", "formal"],
+                featured: false,
+                createdAt: "2025-02-01"
             },
             { 
                 id: 4, 
@@ -2249,7 +2872,14 @@
                 price: 5499, 
                 category: "Sarees", 
                 image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", 
-                description: "Beautiful silk saree with intricate embroidery and elegant drape."
+                description: "Beautiful silk saree with intricate embroidery and elegant drape.",
+                stock: 15,
+                sku: "SR001",
+                color: "Red",
+                sizes: ["Free Size"],
+                tags: ["saree", "silk", "embroidered"],
+                featured: true,
+                createdAt: "2025-02-05"
             }
         ];
 
@@ -2257,6 +2887,9 @@
         let currentOrder = null;
         let currentUser = JSON.parse(localStorage.getItem('OKAYBRUH_current_user')) || null;
         let uploadedScreenshot = null;
+        let orders = JSON.parse(localStorage.getItem('OKAYBRUH_orders')) || [];
+        let customers = JSON.parse(localStorage.getItem('OKAYBRUH_customers')) || [];
+        let adminActivities = JSON.parse(localStorage.getItem('OKAYBRUH_activities')) || [];
 
         // ============================================
         // DOM ELEMENTS
@@ -2355,6 +2988,25 @@
         const ordersList = document.getElementById('orders-list');
         const productGrid = document.getElementById('product-grid');
         const newsletterForm = document.getElementById('newsletter-form');
+        
+        // Admin Stats
+        const totalIncomeElement = document.getElementById('total-income');
+        const totalOrdersElement = document.getElementById('total-orders');
+        const totalProductsElement = document.getElementById('total-products');
+        const totalCustomersElement = document.getElementById('total-customers');
+        
+        // Admin Dashboard
+        const recentActivityList = document.getElementById('recent-activity-list');
+        const dashboardOrdersList = document.getElementById('dashboard-orders-list');
+        const orderFilter = document.getElementById('order-filter');
+        const inventoryList = document.getElementById('inventory-list');
+        const lowStockItems = document.getElementById('low-stock-items');
+        const customersList = document.getElementById('customers-list');
+        const exportDataBtn = document.getElementById('export-data');
+        
+        // Modals
+        const orderDetailsModal = document.getElementById('order-details-modal');
+        const closeOrderDetailsBtn = document.getElementById('close-order-details');
 
         // ============================================
         // APPLICATION INITIALIZATION
@@ -2378,6 +3030,9 @@
                 shippingEmail.value = currentUser.email || '';
                 shippingPhone.value = currentUser.phone || '';
             }
+            
+            // Initialize customers from orders
+            updateCustomersFromOrders();
         }
 
         // ============================================
@@ -2467,6 +3122,9 @@
                 tab.addEventListener('click', () => switchAdminTab(tab.dataset.tab));
             });
             addProductForm.addEventListener('submit', handleAddProduct);
+            orderFilter.addEventListener('change', loadOrders);
+            exportDataBtn.addEventListener('click', exportData);
+            closeOrderDetailsBtn.addEventListener('click', closeOrderDetailsModal);
 
             // Newsletter
             newsletterForm.addEventListener('submit', handleNewsletterSubmit);
@@ -2475,6 +3133,7 @@
             document.addEventListener('click', (e) => {
                 if (e.target === profileModal) closeProfileModal();
                 if (e.target === cartModal) closeCart();
+                if (e.target === orderDetailsModal) closeOrderDetailsModal();
             });
 
             // Close modals with Escape key
@@ -2482,7 +3141,14 @@
                 if (e.key === 'Escape') {
                     closeCart();
                     closeProfileModal();
+                    closeOrderDetailsModal();
                 }
+            });
+            
+            // Analytics period change
+            document.getElementById('analytics-period').addEventListener('change', function() {
+                const customRange = document.getElementById('custom-date-range');
+                customRange.style.display = this.value === 'custom' ? 'block' : 'none';
             });
         }
 
@@ -2525,8 +3191,7 @@
                     break;
                 case 'admin':
                     adminSection.style.display = 'block';
-                    loadAdminProducts();
-                    loadOrders();
+                    loadAdminDashboard();
                     window.scrollTo(0, 0);
                     break;
             }
@@ -2559,14 +3224,16 @@
             card.innerHTML = `
                 <div class="product-image">
                     <img src="${product.image}" alt="${product.name}" loading="lazy">
-                    ${product.id === 1 ? '<div class="product-badge">Bestseller</div>' : ''}
-                    ${product.id === 2 ? '<div class="product-badge">New</div>' : ''}
-                    ${product.price > 4000 ? '<div class="product-badge">Premium</div>' : ''}
+                    ${product.featured ? '<div class="product-badge">Featured</div>' : ''}
+                    ${product.stock < 10 ? '<div class="product-badge" style="background-color: #e74c3c;">Low Stock</div>' : ''}
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
                     <p class="product-description">${product.description}</p>
-                    <p class="product-price">₹${product.price.toLocaleString()}</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <p class="product-price">₹${product.price.toLocaleString()}</p>
+                        ${product.stock < 10 ? '<span style="color: #e74c3c; font-size: 12px; font-weight: 600;">Only ${product.stock} left!</span>' : ''}
+                    </div>
                     <div class="product-actions">
                         <button class="btn btn-outline add-to-cart" data-id="${product.id}">Add to Cart</button>
                         <button class="btn buy-now" data-id="${product.id}">Buy Now</button>
@@ -2613,6 +3280,12 @@
                 // Regular product
                 const product = products.find(p => p.id === productId);
                 if (!product) return;
+                
+                // Check stock
+                if (product.stock <= 0) {
+                    showNotification(`${product.name} is out of stock!`, 'error');
+                    return;
+                }
                 
                 const existingItem = cart.find(item => item.id === productId);
                 if (existingItem) {
@@ -2717,6 +3390,12 @@
         }
 
         function increaseQuantity(index) {
+            const product = products.find(p => p.id === cart[index].id);
+            if (product && cart[index].quantity >= product.stock) {
+                showNotification(`Only ${product.stock} items available in stock!`, 'error');
+                return;
+            }
+            
             cart[index].quantity++;
             saveCart();
             updateCartCount();
@@ -2875,6 +3554,15 @@
             // Save order
             saveOrder();
             
+            // Update stock
+            updateStockFromOrder(currentOrder);
+            
+            // Add customer
+            addCustomerFromOrder(currentOrder);
+            
+            // Add activity
+            addAdminActivity('order_placed', `New order #${currentOrder.id} placed by ${currentOrder.shipping.name}`);
+            
             // Clear cart
             cart = [];
             saveCart();
@@ -2965,9 +3653,19 @@
         }
 
         function saveOrder() {
-            const orders = JSON.parse(localStorage.getItem('OKAYBRUH_orders')) || [];
             orders.push(currentOrder);
             localStorage.setItem('OKAYBRUH_orders', JSON.stringify(orders));
+        }
+
+        function updateStockFromOrder(order) {
+            order.items.forEach(item => {
+                const product = products.find(p => p.id === item.id);
+                if (product) {
+                    product.stock -= item.quantity;
+                    if (product.stock < 0) product.stock = 0;
+                }
+            });
+            saveProducts();
         }
 
         // ============================================
@@ -3318,7 +4016,7 @@
         }
 
         // ============================================
-        // ADMIN FUNCTIONALITY
+        // ADMIN PANEL - COMPLETE FUNCTIONALITY
         // ============================================
         function switchAdminTab(tab) {
             // Update active tab
@@ -3328,6 +4026,145 @@
             // Show appropriate content
             adminContents.forEach(content => content.classList.remove('active'));
             document.getElementById(`${tab}-tab`).classList.add('active');
+            
+            // Load data for the tab
+            switch(tab) {
+                case 'dashboard':
+                    loadAdminDashboard();
+                    break;
+                case 'products':
+                    loadAdminProducts();
+                    break;
+                case 'orders':
+                    loadOrders();
+                    break;
+                case 'inventory':
+                    loadInventory();
+                    break;
+                case 'customers':
+                    loadCustomers();
+                    break;
+                case 'analytics':
+                    loadAnalytics();
+                    break;
+            }
+        }
+
+        function loadAdminDashboard() {
+            // Calculate stats
+            const totalIncome = orders.reduce((sum, order) => sum + order.total, 0);
+            const totalOrders = orders.length;
+            const totalProducts = products.length;
+            const totalCustomers = customers.length;
+            
+            // Update stats
+            totalIncomeElement.textContent = `₹${totalIncome.toLocaleString()}`;
+            totalOrdersElement.textContent = totalOrders;
+            totalProductsElement.textContent = totalProducts;
+            totalCustomersElement.textContent = totalCustomers;
+            
+            // Load recent activity
+            loadRecentActivity();
+            
+            // Load recent orders
+            loadDashboardOrders();
+        }
+
+        function loadRecentActivity() {
+            recentActivityList.innerHTML = '';
+            
+            // Get last 10 activities
+            const recentActivities = adminActivities.slice(-10).reverse();
+            
+            if (recentActivities.length === 0) {
+                recentActivityList.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">No recent activity</p>';
+                return;
+            }
+            
+            recentActivities.forEach(activity => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div class="activity-icon">
+                        <i class="fas fa-${getActivityIcon(activity.type)}"></i>
+                    </div>
+                    <div class="activity-content">
+                        <div>${activity.description}</div>
+                        <div class="activity-time">${formatTime(activity.timestamp)}</div>
+                    </div>
+                `;
+                recentActivityList.appendChild(li);
+            });
+        }
+
+        function getActivityIcon(type) {
+            const icons = {
+                'order_placed': 'shopping-cart',
+                'product_added': 'plus-circle',
+                'product_updated': 'edit',
+                'product_deleted': 'trash',
+                'order_updated': 'truck',
+                'customer_added': 'user-plus'
+            };
+            return icons[type] || 'bell';
+        }
+
+        function formatTime(timestamp) {
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMins / 60);
+            const diffDays = Math.floor(diffHours / 24);
+            
+            if (diffMins < 1) return 'Just now';
+            if (diffMins < 60) return `${diffMins} minutes ago`;
+            if (diffHours < 24) return `${diffHours} hours ago`;
+            if (diffDays < 7) return `${diffDays} days ago`;
+            return date.toLocaleDateString();
+        }
+
+        function loadDashboardOrders() {
+            dashboardOrdersList.innerHTML = '';
+            
+            // Get last 5 orders
+            const recentOrders = orders.slice(-5).reverse();
+            
+            if (recentOrders.length === 0) {
+                dashboardOrdersList.innerHTML = `
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 30px; color: #666;">
+                            No orders yet
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            recentOrders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.shipping?.name || 'N/A'}</td>
+                    <td>${new Date(order.date).toLocaleDateString()}</td>
+                    <td>₹${order.total.toLocaleString()}</td>
+                    <td><span class="status-badge status-${order.status}">${order.status}</span></td>
+                    <td>
+                        <button class="btn btn-outline btn-sm view-order-btn" data-id="${order.id}">View</button>
+                    </td>
+                `;
+                dashboardOrdersList.appendChild(row);
+            });
+            
+            // Add event listeners to view buttons
+            dashboardOrdersList.querySelectorAll('.view-order-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const orderId = e.target.dataset.id;
+                    const order = orders.find(o => o.id === orderId);
+                    if (order) {
+                        showOrderDetails(order);
+                    }
+                });
+            });
         }
 
         function loadAdminProducts() {
@@ -3349,10 +4186,13 @@
                 <div class="admin-product-info">
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
-                    <p><strong>Price:</strong> ₹${product.price}</p>
+                    <p><strong>Price:</strong> ₹${product.price.toLocaleString()}</p>
                     <p><strong>Category:</strong> ${product.category}</p>
+                    <p><strong>Stock:</strong> ${product.stock} units</p>
+                    <p><strong>SKU:</strong> ${product.sku || 'N/A'}</p>
                     <div class="admin-product-actions">
                         <button class="btn btn-outline edit-product" data-id="${product.id}">Edit</button>
+                        <button class="btn btn-info stock-product" data-id="${product.id}">Stock</button>
                         <button class="btn btn-danger delete-product" data-id="${product.id}">Delete</button>
                     </div>
                 </div>
@@ -3365,6 +4205,9 @@
             const editBtn = card.querySelector('.edit-product');
             editBtn.addEventListener('click', () => editProduct(product.id));
             
+            const stockBtn = card.querySelector('.stock-product');
+            stockBtn.addEventListener('click', () => updateStock(product.id));
+            
             return card;
         }
 
@@ -3375,10 +4218,16 @@
             const description = document.getElementById('product-description').value;
             const price = parseFloat(document.getElementById('product-price').value);
             const category = document.getElementById('product-category').value;
+            const stock = parseInt(document.getElementById('product-stock').value);
             const image = document.getElementById('product-image').value;
+            const color = document.getElementById('product-color').value;
+            const sizes = document.getElementById('product-size').value;
+            const tags = document.getElementById('product-tags').value;
+            const sku = document.getElementById('product-sku').value;
+            const featured = document.getElementById('product-featured').checked;
             
-            if (!name || !description || !price || !category || !image) {
-                showNotification('Please fill in all fields', 'error');
+            if (!name || !description || !price || !category || !stock || !image) {
+                showNotification('Please fill in all required fields', 'error');
                 return;
             }
             
@@ -3388,16 +4237,27 @@
                 description,
                 price,
                 category,
-                image
+                stock,
+                image,
+                color,
+                sizes: sizes ? sizes.split(',').map(s => s.trim()) : [],
+                tags: tags ? tags.split(',').map(t => t.trim()) : [],
+                sku,
+                featured,
+                createdAt: new Date().toISOString()
             };
             
             products.push(newProduct);
             saveProducts();
             loadProducts();
             loadAdminProducts();
+            loadInventory();
             
             addProductForm.reset();
             showNotification('Product added successfully!', 'success');
+            
+            // Add activity
+            addAdminActivity('product_added', `New product "${name}" added`);
             
             // Switch to products tab
             switchAdminTab('products');
@@ -3406,10 +4266,16 @@
         function deleteProduct(id) {
             if (!confirm('Are you sure you want to delete this product?')) return;
             
+            const product = products.find(p => p.id === id);
             products = products.filter(product => product.id !== id);
             saveProducts();
             loadProducts();
             loadAdminProducts();
+            loadInventory();
+            
+            // Add activity
+            addAdminActivity('product_deleted', `Product "${product?.name}" deleted`);
+            
             showNotification('Product deleted successfully', 'success');
         }
 
@@ -3422,7 +4288,13 @@
             document.getElementById('product-description').value = product.description;
             document.getElementById('product-price').value = product.price;
             document.getElementById('product-category').value = product.category;
+            document.getElementById('product-stock').value = product.stock;
             document.getElementById('product-image').value = product.image;
+            document.getElementById('product-color').value = product.color || '';
+            document.getElementById('product-size').value = product.sizes?.join(', ') || '';
+            document.getElementById('product-tags').value = product.tags?.join(', ') || '';
+            document.getElementById('product-sku').value = product.sku || '';
+            document.getElementById('product-featured').checked = product.featured || false;
             
             // Switch to add product tab
             switchAdminTab('add-product');
@@ -3440,15 +4312,25 @@
                 product.description = document.getElementById('product-description').value;
                 product.price = parseFloat(document.getElementById('product-price').value);
                 product.category = document.getElementById('product-category').value;
+                product.stock = parseInt(document.getElementById('product-stock').value);
                 product.image = document.getElementById('product-image').value;
+                product.color = document.getElementById('product-color').value;
+                product.sizes = document.getElementById('product-size').value ? document.getElementById('product-size').value.split(',').map(s => s.trim()) : [];
+                product.tags = document.getElementById('product-tags').value ? document.getElementById('product-tags').value.split(',').map(t => t.trim()) : [];
+                product.sku = document.getElementById('product-sku').value;
+                product.featured = document.getElementById('product-featured').checked;
                 
                 saveProducts();
                 loadProducts();
                 loadAdminProducts();
+                loadInventory();
                 
                 // Reset form
                 addProductForm.reset();
                 submitBtn.textContent = 'Add Product';
+                
+                // Add activity
+                addAdminActivity('product_updated', `Product "${product.name}" updated`);
                 
                 // Switch back to products tab
                 switchAdminTab('products');
@@ -3460,84 +4342,178 @@
             };
         }
 
-        function loadOrders() {
-            const orders = JSON.parse(localStorage.getItem('OKAYBRUH_orders')) || [];
-            ordersList.innerHTML = '';
+        function updateStock(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
             
-            if (orders.length === 0) {
-                ordersList.innerHTML = '<p style="text-align: center; color: #666;">No orders yet</p>';
+            const newStock = prompt(`Current stock: ${product.stock}\nEnter new stock quantity:`, product.stock);
+            if (newStock === null) return;
+            
+            const stockValue = parseInt(newStock);
+            if (isNaN(stockValue) || stockValue < 0) {
+                showNotification('Please enter a valid stock quantity', 'error');
                 return;
             }
             
-            // Show latest orders first
-            orders.reverse().forEach(order => {
-                const orderElement = document.createElement('div');
-                orderElement.className = 'admin-product-card';
-                orderElement.innerHTML = `
-                    <div class="admin-product-info">
-                        <h3>Order: ${order.id}</h3>
-                        <p><strong>Customer:</strong> ${order.shipping?.name || 'N/A'}</p>
-                        <p><strong>Email:</strong> ${order.shipping?.email || 'N/A'}</p>
-                        <p><strong>Phone:</strong> ${order.shipping?.phone || 'N/A'}</p>
-                        <p><strong>Total:</strong> ₹${order.total?.toLocaleString() || '0'}</p>
-                        <p><strong>Status:</strong> <span class="status-${order.status}">${order.status}</span></p>
-                        <p><strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}</p>
-                        <div class="admin-product-actions">
-                            <button class="btn btn-outline view-order" data-id="${order.id}">View Details</button>
-                            <button class="btn btn-success update-status" data-id="${order.id}">Update Status</button>
-                        </div>
-                    </div>
+            product.stock = stockValue;
+            saveProducts();
+            loadAdminProducts();
+            loadInventory();
+            
+            // Add activity
+            addAdminActivity('product_updated', `Stock updated for "${product.name}" to ${stockValue}`);
+            
+            showNotification('Stock updated successfully', 'success');
+        }
+
+        function loadOrders() {
+            const filter = orderFilter.value;
+            let filteredOrders = orders;
+            
+            if (filter !== 'all') {
+                filteredOrders = orders.filter(order => order.status === filter);
+            }
+            
+            // Sort by date (newest first)
+            filteredOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            ordersList.innerHTML = '';
+            
+            if (filteredOrders.length === 0) {
+                ordersList.innerHTML = `
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 30px; color: #666;">
+                            No orders found
+                        </td>
+                    </tr>
                 `;
-                
-                ordersList.appendChild(orderElement);
-                
-                // Add status styling
-                const statusSpan = orderElement.querySelector(`.status-${order.status}`);
-                if (statusSpan) {
-                    if (order.status === 'pending') {
-                        statusSpan.style.color = '#f39c12';
-                    } else if (order.status === 'processing') {
-                        statusSpan.style.color = '#3498db';
-                    } else if (order.status === 'shipped') {
-                        statusSpan.style.color = '#9b59b6';
-                    } else if (order.status === 'delivered') {
-                        statusSpan.style.color = '#2ecc71';
-                    } else if (order.status === 'cancelled') {
-                        statusSpan.style.color = '#e74c3c';
+                return;
+            }
+            
+            filteredOrders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.shipping?.name || 'N/A'}</td>
+                    <td>${new Date(order.date).toLocaleDateString()}</td>
+                    <td>${order.items.length} item(s)</td>
+                    <td>₹${order.total.toLocaleString()}</td>
+                    <td>
+                        <span class="status-badge status-${order.status}">${order.status}</span>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline btn-sm view-order-btn" data-id="${order.id}">View</button>
+                        <button class="btn btn-info btn-sm update-status-btn" data-id="${order.id}">Status</button>
+                    </td>
+                `;
+                ordersList.appendChild(row);
+            });
+            
+            // Add event listeners
+            ordersList.querySelectorAll('.view-order-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const orderId = e.target.dataset.id;
+                    const order = orders.find(o => o.id === orderId);
+                    if (order) {
+                        showOrderDetails(order);
                     }
-                }
-                
-                // Add event listeners
-                const viewBtn = orderElement.querySelector('.view-order');
-                viewBtn.addEventListener('click', () => viewOrderDetails(order));
-                
-                const updateBtn = orderElement.querySelector('.update-status');
-                updateBtn.addEventListener('click', () => updateOrderStatus(order.id));
+                });
+            });
+            
+            ordersList.querySelectorAll('.update-status-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const orderId = e.target.dataset.id;
+                    updateOrderStatus(orderId);
+                });
             });
         }
 
-        function viewOrderDetails(order) {
-            let details = `Order ID: ${order.id}\n`;
-            details += `Date: ${new Date(order.date).toLocaleString()}\n`;
-            details += `Status: ${order.status}\n`;
-            details += `Total: ₹${order.total.toLocaleString()}\n\n`;
-            details += `Customer Details:\n`;
-            details += `Name: ${order.shipping?.name || 'N/A'}\n`;
-            details += `Email: ${order.shipping?.email || 'N/A'}\n`;
-            details += `Phone: ${order.shipping?.phone || 'N/A'}\n`;
-            details += `Address: ${order.shipping?.address || 'N/A'}\n\n`;
-            details += `Items:\n`;
+        function showOrderDetails(order) {
+            const content = document.getElementById('order-details-content');
+            
+            let itemsHtml = '';
             order.items.forEach((item, index) => {
-                details += `${index + 1}. ${item.name} x${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}\n`;
+                itemsHtml += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>₹${item.price.toLocaleString()}</td>
+                        <td>₹${(item.price * item.quantity).toLocaleString()}</td>
+                    </tr>
+                `;
             });
             
-            alert(details);
+            content.innerHTML = `
+                <div style="margin-bottom: 20px;">
+                    <h3>Order Information</h3>
+                    <p><strong>Order ID:</strong> ${order.id}</p>
+                    <p><strong>Date:</strong> ${new Date(order.date).toLocaleString()}</p>
+                    <p><strong>Status:</strong> <span class="status-badge status-${order.status}">${order.status}</span></p>
+                    <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
+                    <p><strong>Total Amount:</strong> ₹${order.total.toLocaleString()}</p>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3>Customer Information</h3>
+                    <p><strong>Name:</strong> ${order.shipping?.name || 'N/A'}</p>
+                    <p><strong>Email:</strong> ${order.shipping?.email || 'N/A'}</p>
+                    <p><strong>Phone:</strong> ${order.shipping?.phone || 'N/A'}</p>
+                    <p><strong>Address:</strong> ${order.shipping?.address || 'N/A'}</p>
+                    <p><strong>City:</strong> ${order.shipping?.city || 'N/A'}, PIN: ${order.shipping?.pincode || 'N/A'}</p>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3>Order Items</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                        <thead>
+                            <tr style="background-color: #f5f5f5;">
+                                <th style="padding: 10px; text-align: left;">#</th>
+                                <th style="padding: 10px; text-align: left;">Product</th>
+                                <th style="padding: 10px; text-align: left;">Qty</th>
+                                <th style="padding: 10px; text-align: left;">Price</th>
+                                <th style="padding: 10px; text-align: left;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${itemsHtml}
+                        </tbody>
+                        <tfoot>
+                            <tr style="border-top: 2px solid #000;">
+                                <td colspan="4" style="padding: 10px; text-align: right; font-weight: bold;">Total:</td>
+                                <td style="padding: 10px; font-weight: bold;">₹${order.total.toLocaleString()}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button class="btn btn-outline" id="print-order">Print</button>
+                    <button class="btn" id="update-status-from-details" data-id="${order.id}">Update Status</button>
+                </div>
+            `;
+            
+            orderDetailsModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Add event listeners
+            document.getElementById('print-order').addEventListener('click', () => {
+                window.print();
+            });
+            
+            document.getElementById('update-status-from-details').addEventListener('click', (e) => {
+                const orderId = e.target.dataset.id;
+                updateOrderStatus(orderId);
+            });
+        }
+
+        function closeOrderDetailsModal() {
+            orderDetailsModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
         function updateOrderStatus(orderId) {
-            const orders = JSON.parse(localStorage.getItem('OKAYBRUH_orders')) || [];
             const order = orders.find(o => o.id === orderId);
-            
             if (!order) return;
             
             const newStatus = prompt('Enter new status (pending, processing, shipped, delivered, cancelled):', order.status);
@@ -3549,7 +4525,251 @@
             order.status = newStatus;
             localStorage.setItem('OKAYBRUH_orders', JSON.stringify(orders));
             loadOrders();
+            loadDashboardOrders();
+            
+            // Add activity
+            addAdminActivity('order_updated', `Order #${orderId} status changed to ${newStatus}`);
+            
             showNotification('Order status updated', 'success');
+        }
+
+        function loadInventory() {
+            inventoryList.innerHTML = '';
+            
+            products.forEach(product => {
+                const row = document.createElement('tr');
+                const stockLevel = getStockLevel(product.stock);
+                
+                row.innerHTML = `
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <img src="${product.image}" alt="${product.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                            <div>
+                                <strong>${product.name}</strong><br>
+                                <small>${product.sku || 'No SKU'}</small>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${product.sku || 'N/A'}</td>
+                    <td>${product.category}</td>
+                    <td>${product.stock}</td>
+                    <td>₹${product.price.toLocaleString()}</td>
+                    <td>
+                        <span class="stock-level ${stockLevel}">
+                            ${stockLevel === 'stock-high' ? 'High' : stockLevel === 'stock-medium' ? 'Medium' : 'Low'}
+                        </span>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline btn-sm update-stock-btn" data-id="${product.id}">Update Stock</button>
+                    </td>
+                `;
+                inventoryList.appendChild(row);
+            });
+            
+            // Load low stock items
+            loadLowStockItems();
+            
+            // Add event listeners
+            inventoryList.querySelectorAll('.update-stock-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.dataset.id);
+                    updateStock(productId);
+                });
+            });
+        }
+
+        function getStockLevel(stock) {
+            if (stock > 50) return 'stock-high';
+            if (stock > 10) return 'stock-medium';
+            return 'stock-low';
+        }
+
+        function loadLowStockItems() {
+            const lowStock = products.filter(p => p.stock <= 10);
+            lowStockItems.innerHTML = '';
+            
+            if (lowStock.length === 0) {
+                lowStockItems.innerHTML = '<p style="text-align: center; color: #666; padding: 20px;">No low stock items</p>';
+                return;
+            }
+            
+            lowStock.forEach(product => {
+                const item = document.createElement('div');
+                item.className = 'admin-product-card';
+                item.style.marginBottom = '10px';
+                item.innerHTML = `
+                    <div class="admin-product-info">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h4>${product.name}</h4>
+                                <p>SKU: ${product.sku || 'N/A'} | Stock: ${product.stock}</p>
+                            </div>
+                            <button class="btn btn-warning btn-sm update-stock-btn" data-id="${product.id}">Restock</button>
+                        </div>
+                    </div>
+                `;
+                lowStockItems.appendChild(item);
+            });
+            
+            // Add event listeners
+            lowStockItems.querySelectorAll('.update-stock-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const productId = parseInt(e.target.dataset.id);
+                    updateStock(productId);
+                });
+            });
+        }
+
+        function loadCustomers() {
+            customersList.innerHTML = '';
+            
+            if (customers.length === 0) {
+                customersList.innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align: center; padding: 30px; color: #666;">
+                            No customers yet
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            customers.forEach(customer => {
+                const customerOrders = orders.filter(o => o.shipping?.email === customer.email);
+                const totalSpent = customerOrders.reduce((sum, order) => sum + order.total, 0);
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>CUST-${customer.id.toString().padStart(6, '0')}</td>
+                    <td>${customer.name}</td>
+                    <td>${customer.email}</td>
+                    <td>${customer.phone || 'N/A'}</td>
+                    <td>${customerOrders.length}</td>
+                    <td>₹${totalSpent.toLocaleString()}</td>
+                    <td><span class="customer-status status-active">Active</span></td>
+                    <td>
+                        <button class="btn btn-outline btn-sm view-customer-orders" data-email="${customer.email}">View Orders</button>
+                    </td>
+                `;
+                customersList.appendChild(row);
+            });
+            
+            // Add event listeners
+            customersList.querySelectorAll('.view-customer-orders').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const email = e.target.dataset.email;
+                    const customerOrders = orders.filter(o => o.shipping?.email === email);
+                    if (customerOrders.length > 0) {
+                        alert(`Customer has ${customerOrders.length} order(s)\nTotal spent: ₹${customerOrders.reduce((sum, o) => sum + o.total, 0).toLocaleString()}`);
+                    } else {
+                        alert('No orders found for this customer');
+                    }
+                });
+            });
+        }
+
+        function addCustomerFromOrder(order) {
+            const existingCustomer = customers.find(c => c.email === order.shipping.email);
+            if (!existingCustomer) {
+                const newCustomer = {
+                    id: Date.now(),
+                    name: order.shipping.name,
+                    email: order.shipping.email,
+                    phone: order.shipping.phone,
+                    firstOrder: order.date,
+                    lastOrder: order.date,
+                    totalOrders: 1,
+                    totalSpent: order.total
+                };
+                customers.push(newCustomer);
+                localStorage.setItem('OKAYBRUH_customers', JSON.stringify(customers));
+                
+                // Add activity
+                addAdminActivity('customer_added', `New customer "${order.shipping.name}" added`);
+            } else {
+                existingCustomer.lastOrder = order.date;
+                existingCustomer.totalOrders += 1;
+                existingCustomer.totalSpent += order.total;
+                localStorage.setItem('OKAYBRUH_customers', JSON.stringify(customers));
+            }
+        }
+
+        function updateCustomersFromOrders() {
+            orders.forEach(order => {
+                if (order.shipping?.email) {
+                    const existingCustomer = customers.find(c => c.email === order.shipping.email);
+                    if (!existingCustomer) {
+                        const newCustomer = {
+                            id: Date.now(),
+                            name: order.shipping.name,
+                            email: order.shipping.email,
+                            phone: order.shipping.phone,
+                            firstOrder: order.date,
+                            lastOrder: order.date,
+                            totalOrders: 1,
+                            totalSpent: order.total
+                        };
+                        customers.push(newCustomer);
+                    }
+                }
+            });
+            localStorage.setItem('OKAYBRUH_customers', JSON.stringify(customers));
+        }
+
+        function loadAnalytics() {
+            // This would be more complex with real chart libraries
+            // For now, just show placeholders
+            const period = document.getElementById('analytics-period').value;
+            let filteredOrders = orders;
+            
+            // Filter by period
+            if (period !== 'custom') {
+                const days = parseInt(period);
+                const cutoffDate = new Date();
+                cutoffDate.setDate(cutoffDate.getDate() - days);
+                filteredOrders = orders.filter(order => new Date(order.date) >= cutoffDate);
+            }
+            
+            // Calculate analytics
+            const totalRevenue = filteredOrders.reduce((sum, order) => sum + order.total, 0);
+            const avgOrderValue = filteredOrders.length > 0 ? totalRevenue / filteredOrders.length : 0;
+            
+            // Update display
+            document.getElementById('avg-order-value').textContent = `₹${avgOrderValue.toFixed(2)}`;
+            document.getElementById('conversion-rate').textContent = '3.2%'; // Placeholder
+            document.getElementById('retention-rate').textContent = '45%'; // Placeholder
+        }
+
+        function addAdminActivity(type, description) {
+            const activity = {
+                type,
+                description,
+                timestamp: new Date().toISOString()
+            };
+            adminActivities.push(activity);
+            localStorage.setItem('OKAYBRUH_activities', JSON.stringify(adminActivities));
+        }
+
+        function exportData() {
+            const data = {
+                products: products,
+                orders: orders,
+                customers: customers,
+                activities: adminActivities,
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `okaybruh-export-${new Date().toISOString().split('T')[0]}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showNotification('Data exported successfully!', 'success');
         }
 
         // ============================================
@@ -3567,7 +4787,8 @@
             const filteredProducts = products.filter(product => 
                 product.name.toLowerCase().includes(query) ||
                 product.description.toLowerCase().includes(query) ||
-                product.category.toLowerCase().includes(query)
+                product.category.toLowerCase().includes(query) ||
+                product.tags?.some(tag => tag.toLowerCase().includes(query))
             );
             
             // Display results
