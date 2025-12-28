@@ -458,6 +458,132 @@
             color: white;
         }
 
+        /* Product Image Slider - Enhanced */
+        .product-image-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            touch-action: pan-y pinch-zoom;
+        }
+
+        .product-image-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            pointer-events: none;
+        }
+
+        .product-image-slider img.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .image-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 15;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .image-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .image-dot:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.2);
+        }
+
+        .image-dot.active {
+            background: white;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 15;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .image-nav {
+            display: flex;
+        }
+
+        .image-nav:hover {
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .image-nav:active {
+            transform: translateY(-50%) scale(0.9);
+        }
+
+        .image-nav-prev {
+            left: 8px;
+        }
+
+        .image-nav-next {
+            right: 8px;
+        }
+
+        .image-nav i {
+            font-size: 24px;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .image-nav:hover i {
+            color: white;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Mobile: Always show dots, show arrows on tap */
+        @media (max-width: 768px) {
+            .image-nav {
+                display: flex;
+                opacity: 0.8;
+            }
+
+            .image-nav:active {
+                opacity: 1;
+            }
+
+            .image-dots {
+                bottom: 10px;
+            }
+        }
+
+
         .product-info {
             padding: 20px;
             text-align: center;
@@ -4277,7 +4403,7 @@
     </div>
 
     <!-- Customization Prompt Modal -->
-    <div class="cropper-modal" id="customization-prompt-modal">
+    <div class="cropper-modal" id="customization-prompt-modal" style="display: none !important;">
         <div class="premium-prompt-box">
             <button class="close-btn" style="position: absolute; top: 15px; right: 15px;"
                 onclick="closeCustomizationPrompt()">&times;</button>
@@ -4330,35 +4456,286 @@
         // Initial products data
         let products = [
             // WOMEN'S TEES (Regular, Oversized, Baggy)
-            { id: 101, name: "Sunset Peach Oversized Tee", price: 399, category: "Tees", gender: "women", subCategory: "oversized", image: "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Soft peach oversized tee with dropped shoulders.", stock: 45, tags: ["tees", "oversized", "cotton"], featured: true },
-            { id: 102, name: "Midnight Black Regular Tee", price: 299, category: "Tees", gender: "women", subCategory: "regular", image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Perfect fit black tee made from organic cotton.", stock: 60, tags: ["tees", "regular"], featured: false },
-            { id: 103, name: "Vintage White Baggy Tee", price: 449, category: "Tees", gender: "women", subCategory: "baggy", image: "https://images.unsplash.com/photo-1571945153237-4929e78394af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Street-style baggy tee in vintage off-white.", stock: 30, tags: ["tees", "baggy", "urban"], featured: true },
-            { id: 104, name: "AirBlue Oversized Tee", price: 539, category: "Tees", gender: "women", subCategory: "oversized", image: "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%203.51.49%20PM.jpeg?raw=true", description: "Trendy oversized tee featuring exclusive artwork.", stock: 50, tags: ["tees", "oversized", "women", "new"], featured: true },
+            {
+                id: 101,
+                name: "Sunset Peach Oversized Tee",
+                price: 399,
+                category: "Tees",
+                gender: "women",
+                subCategory: "oversized",
+                image: "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Soft peach oversized tee with dropped shoulders.",
+                stock: 45,
+                tags: ["tees", "oversized", "cotton"],
+                featured: true
+            },
+            {
+                id: 102,
+                name: "Midnight Black Regular Tee",
+                price: 299,
+                category: "Tees",
+                gender: "women",
+                subCategory: "regular",
+                image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Perfect fit black tee made from organic cotton.",
+                stock: 60,
+                tags: ["tees", "regular"],
+                featured: false
+            },
+            {
+                id: 103,
+                name: "Vintage White Baggy Tee",
+                price: 449,
+                category: "Tees",
+                gender: "women",
+                subCategory: "baggy",
+                image: "https://images.unsplash.com/photo-1571945153237-4929e78394af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1571945153237-4929e78394af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Street-style baggy tee in vintage off-white.",
+                stock: 30,
+                tags: ["tees", "baggy", "urban"],
+                featured: true
+            },
+            {
+                id: 104,
+                name: "AirBlue Oversized Tee",
+                price: 539,
+                category: "Tees",
+                gender: "women",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%203.51.49%20PM.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%203.51.49%20PM.jpeg?raw=true",
+                    "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Trendy oversized tee featuring exclusive artwork.",
+                stock: 50,
+                tags: ["tees", "oversized", "women", "new"],
+                featured: true
+            },
 
             // MEN'S TEES (Classic, Oversized, Streetwear Baggy)
-            { id: 201, name: "Graphic Street Baggy Tee", price: 499, category: "Tees", gender: "men", subCategory: "baggy", image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Heavyweight baggy tee with rear graphic print.", stock: 35, tags: ["tees", "baggy", "streetwear"], featured: true },
-            { id: 202, name: "Sage Green Oversized Fit", price: 399, category: "Tees", gender: "men", subCategory: "oversized", image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Minimalist sage green tee in oversized cut.", stock: 50, tags: ["tees", "oversized"], featured: false },
-            { id: 203, name: "Spiderman Designed Fit", price: 349, category: "Tees", gender: "men", subCategory: "regular", image: "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%206.35.18%20PM.jpeg?raw=true", description: "Essential navy crew neck for versatile styling.", stock: 55, tags: ["tees", "regular"], featured: false },
-
-            // WOMEN'S KURTISETS
-            { id: 401, name: "Silk Royal Blue Anarkali", price: 599, category: "Kurtisets", gender: "women", subCategory: "traditional", image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Royal blue silk anarkali set with gold zari work.", stock: 15, tags: ["ethnic", "kurti", "traditional"], featured: true },
-            { id: 402, name: "Pastel Pink Party Wear", price: 549, category: "Kurtisets", gender: "women", subCategory: "party wear", image: "https://images.unsplash.com/photo-1610030469915-9a88e0bc0f9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Chic pastel pink kurti set with mirror work.", stock: 20, tags: ["ethnic", "partywear"], featured: true },
-            { id: 403, name: "Contemporary Cotton Set", price: 499, category: "Kurtisets", gender: "women", subCategory: "modern ethnic", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Daily wear cotton kurti set with floral motifs.", stock: 40, tags: ["ethnic", "modern"], featured: false },
+            {
+                id: 201,
+                name: "Graphic Street Baggy Tee",
+                price: 499,
+                category: "Tees",
+                gender: "men",
+                subCategory: "baggy",
+                image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Heavyweight baggy tee with rear graphic print.",
+                stock: 35,
+                tags: ["tees", "baggy", "streetwear"],
+                featured: true
+            },
+            {
+                id: 202,
+                name: "Sage Green Oversized Fit",
+                price: 399,
+                category: "Tees",
+                gender: "men",
+                subCategory: "oversized",
+                image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Minimalist sage green tee in oversized cut.",
+                stock: 50,
+                tags: ["tees", "oversized"],
+                featured: false
+            },
+            {
+                id: 203,
+                name: "Spiderman Designed Fit",
+                price: 349,
+                category: "Tees",
+                gender: "men",
+                subCategory: "regular",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%206.35.18%20PM.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%206.35.18%20PM.jpeg?raw=true",
+                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Essential navy crew neck for versatile styling.",
+                stock: 55,
+                tags: ["tees", "regular"],
+                featured: false
+            },
 
             // WINTER WEAR (Men & Women)
-            { id: 301, name: "Luxe Mauve Hoodie", price: 549, category: "Winter Wear", gender: "women", subCategory: "hoodies", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Premium mauve hoodie with brushed interior.", stock: 25, tags: ["hoodies", "winter", "women"], featured: true },
-            { id: 302, name: "Charcoal Grey Tech Sweater", price: 499, category: "Winter Wear", gender: "women", subCategory: "sweaters", image: "https://images.unsplash.com/photo-1574167132712-49ac6b28532c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Ribbed knit charcoal sweater in tech fabric.", stock: 35, tags: ["sweaters", "winter"], featured: false },
-            { id: 303, name: "Coal Black Cargo Hoodie", price: 599, category: "Winter Wear", gender: "men", subCategory: "heavy hoodies", image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Streetwear black hoodie with utility pocket.", stock: 30, tags: ["hoodies", "winter", "men"], featured: true },
-            { id: 304, name: "Alpine Zip Jacket", price: 599, category: "Winter Wear", gender: "men", subCategory: "zip-up jackets", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Insulated zip-up jacket for peak winter.", stock: 18, tags: ["winter", "jackets", "men"], featured: true },
+            {
+                id: 301,
+                name: "Luxe Mauve Hoodie",
+                price: 549,
+                category: "Winter Wear",
+                gender: "women",
+                subCategory: "hoodies",
+                image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Premium mauve hoodie with brushed interior.",
+                stock: 25,
+                tags: ["hoodies", "winter", "women"],
+                featured: true
+            },
+            {
+                id: 302,
+                name: "Charcoal Grey Tech Sweater",
+                price: 499,
+                category: "Winter Wear",
+                gender: "women",
+                subCategory: "sweaters",
+                image: "https://images.unsplash.com/photo-1574167132712-49ac6b28532c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1574167132712-49ac6b28532c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Ribbed knit charcoal sweater in tech fabric.",
+                stock: 35,
+                tags: ["sweaters", "winter"],
+                featured: false
+            },
+            {
+                id: 303,
+                name: "Coal Black Cargo Hoodie",
+                price: 599,
+                category: "Winter Wear",
+                gender: "men",
+                subCategory: "heavy hoodies",
+                image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Streetwear black hoodie with utility pocket.",
+                stock: 30,
+                tags: ["hoodies", "winter", "men"],
+                featured: true
+            },
+            {
+                id: 304,
+                name: "Alpine Zip Jacket",
+                price: 599,
+                category: "Winter Wear",
+                gender: "men",
+                subCategory: "zip-up jackets",
+                image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Insulated zip-up jacket for peak winter.",
+                stock: 18,
+                tags: ["winter", "jackets", "men"],
+                featured: true
+            },
 
             // JERSEYS
-            { id: 501, name: "Strike Force Jersey", price: 449, category: "Jerseys", gender: "men", subCategory: "football kits", image: "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Performance football kit with breathability.", stock: 50, tags: ["jerseys", "football", "active"], featured: true },
-            { id: 502, name: "Dribble Elite Basketball", price: 399, category: "Jerseys", gender: "men", subCategory: "basketball tees", image: "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Lightweight basketball tank in vivid colors.", stock: 45, tags: ["jerseys", "basketball"], featured: false },
-            { id: 503, name: "Active Sport Shorts", price: 349, category: "Jerseys", gender: "women", subCategory: "shorts", image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Flexible high-performance training shorts.", stock: 60, tags: ["jerseys", "shorts", "women"], featured: false },
+            {
+                id: 501,
+                name: "Strike Force Jersey",
+                price: 449,
+                category: "Jerseys",
+                gender: "men",
+                subCategory: "football kits",
+                image: "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Performance football kit with breathability.",
+                stock: 50,
+                tags: ["jerseys", "football", "active"],
+                featured: true
+            },
+            {
+                id: 502,
+                name: "Dribble Elite Basketball",
+                price: 399,
+                category: "Jerseys",
+                gender: "men",
+                subCategory: "basketball tees",
+                image: "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Lightweight basketball tank in vivid colors.",
+                stock: 45,
+                tags: ["jerseys", "basketball"],
+                featured: false
+            },
+            {
+                id: 503,
+                name: "Active Sport Shorts",
+                price: 349,
+                category: "Jerseys",
+                gender: "women",
+                subCategory: "shorts",
+                image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Flexible high-performance training shorts.",
+                stock: 60,
+                tags: ["jerseys", "shorts", "women"],
+                featured: false
+            },
 
             // CUSTOM WEAR
-            { id: 601, name: "Identity Name Tee", price: 399, category: "Custom Wear", gender: "unisex", subCategory: "name printed tees", image: "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "Customizable name print on heavy cotton.", stock: 999, tags: ["custom", "personalized"], featured: true },
-            { id: 602, name: "Memory Photo Print", price: 499, category: "Custom Wear", gender: "unisex", subCategory: "photo print tees", image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80", description: "High-resolution photo print on premium white tee.", stock: 999, tags: ["custom", "photo"], featured: true }
+            {
+                id: 601,
+                name: "Identity Name Tee",
+                price: 399,
+                category: "Custom Wear",
+                gender: "unisex",
+                subCategory: "name printed tees",
+                image: "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Customizable name print on heavy cotton.",
+                stock: 999,
+                tags: ["custom", "personalized"],
+                featured: true
+            },
+            {
+                id: 602,
+                name: "Memory Photo Print",
+                price: 499,
+                category: "Custom Wear",
+                gender: "unisex",
+                subCategory: "photo print tees",
+                image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "High-resolution photo print on premium white tee.",
+                stock: 999,
+                tags: ["custom", "photo"],
+                featured: true
+            }
         ];
 
         let cart = JSON.parse(localStorage.getItem('OKAYBRUH_cart')) || [];
@@ -4978,9 +5355,39 @@
         function createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'product-card';
+
+            // Support both single image and multiple images
+            const images = product.images || [product.image];
+            const hasMultipleImages = images.length > 1;
+
+            // Create image slider HTML
+            let imageSliderHTML = '';
+            if (hasMultipleImages) {
+                imageSliderHTML = `
+                    <div class="product-image-slider">
+                        ${images.map((img, index) => `
+                            <img src="${img}" alt="${product.name}" loading="lazy" class="${index === 0 ? 'active' : ''}" data-index="${index}">
+                        `).join('')}
+                        <button class="image-nav image-nav-prev" onclick="event.stopPropagation(); changeProductImage(this, -1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="image-nav image-nav-next" onclick="event.stopPropagation(); changeProductImage(this, 1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="image-dots">
+                            ${images.map((_, index) => `
+                                <div class="image-dot ${index === 0 ? 'active' : ''}" onclick="event.stopPropagation(); setProductImage(this, ${index})"></div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else {
+                imageSliderHTML = `<img src="${product.image}" alt="${product.name}" loading="lazy">`;
+            }
+
             card.innerHTML = `
                 <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    ${imageSliderHTML}
                     ${product.featured ? '<div class="product-badge">Featured</div>' : ''}
                     ${product.stock < 10 ? '<div class="product-badge" style="background-color: #ff4757;">Low Stock</div>' : ''}
                     <div class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist('${product.id}')">
@@ -5022,6 +5429,41 @@
             });
 
             return card;
+        }
+
+        // Image slider navigation functions
+        function changeProductImage(button, direction) {
+            const slider = button.closest('.product-image-slider');
+            const images = slider.querySelectorAll('img');
+            const dots = slider.querySelectorAll('.image-dot');
+
+            let currentIndex = 0;
+            images.forEach((img, index) => {
+                if (img.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+
+            let newIndex = currentIndex + direction;
+            if (newIndex < 0) newIndex = images.length - 1;
+            if (newIndex >= images.length) newIndex = 0;
+
+            images[currentIndex].classList.remove('active');
+            images[newIndex].classList.add('active');
+            dots[currentIndex].classList.remove('active');
+            dots[newIndex].classList.add('active');
+        }
+
+        function setProductImage(dot, index) {
+            const slider = dot.closest('.product-image-slider');
+            const images = slider.querySelectorAll('img');
+            const dots = slider.querySelectorAll('.image-dot');
+
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            images[index].classList.add('active');
+            dots[index].classList.add('active');
         }
 
         function showCustomizationPrompt(product, actionType) {
@@ -7464,8 +7906,10 @@
 
             const addBtn = document.getElementById('quick-view-add-to-cart');
             addBtn.onclick = () => {
-                closeQuickView();
-                showCustomizationPrompt(product, 'cart');
+                if (addToCart(product.id)) {
+                    showNotification(`${product.name} added to cart!`, 'success');
+                    closeQuickView();
+                }
             };
 
             document.getElementById('quick-view-modal').style.display = 'flex';
