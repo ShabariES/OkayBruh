@@ -2548,6 +2548,17 @@
                 border-radius: 6px !important;
             }
 
+            .product-card-sizes {
+                gap: 5px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .card-size-option {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 10px !important;
+            }
+
             .btn-sm {
                 padding: 10px 8px !important;
                 min-height: 38px !important;
@@ -2878,6 +2889,124 @@
             to {
                 opacity: 0;
             }
+        }
+
+        /* Size Chart Modal */
+        #size-chart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 100000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .size-chart-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            text-align: center;
+        }
+
+        .size-chart-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .size-selector {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .size-option {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .size-option:hover {
+            border-color: #000;
+        }
+
+        .size-option.active {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        .size-chart-link {
+            color: #000;
+            text-decoration: underline;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Product Card Size Styles */
+        .product-card-sizes {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card-size-option {
+            width: 32px;
+            height: 32px;
+            border: 1.5px solid #eee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #fff;
+            color: #666;
+        }
+
+        .card-size-option:hover {
+            border-color: #000;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .card-size-option.active {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .size-nudge {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
         /* Wishlist Modal Styles */
@@ -3288,47 +3417,29 @@
                         <div class="premium-category-card">
                             <h3>Tees</h3>
                             <ul class="sub-categories">
-                                <li>Regular</li>
-                                <li>Oversized</li>
-                                <li>Baggy</li>
+                                <li>Tees</li>
+                                <li>Hoodies</li>
+                                <li>Oversized tees</li>
                             </ul>
-                            <div class="category-cta">Shop All Tees</div>
+                            <div class="category-cta">Shop All</div>
                         </div>
                         <div class="premium-category-card">
                             <h3>Custom Wear</h3>
                             <ul class="sub-categories">
-                                <li>Name printed tees</li>
-                                <li>Photo print tees</li>
-                                <li>Group/couple tees</li>
-                                <li>"Create your own"</li>
+                                <li>Tees</li>
+                                <li>Hoodies</li>
+                                <li>Oversized tees</li>
                             </ul>
                             <div class="category-cta">Start Designing</div>
                         </div>
                         <div class="premium-category-card">
                             <h3>Jerseys</h3>
                             <ul class="sub-categories">
-                                <li>Sport tees</li>
-                                <li>Jerseys</li>
-                                <li>Shorts</li>
+                                <li>Tees</li>
+                                <li>Hoodies</li>
+                                <li>Oversized tees</li>
                             </ul>
                             <div class="category-cta">View Sportswear</div>
-                        </div>
-                        <div class="premium-category-card">
-                            <h3>Winter Wear</h3>
-                            <ul class="sub-categories">
-                                <li>Hoodies</li>
-                                <li>Sweaters</li>
-                            </ul>
-                            <div class="category-cta">Warm Up Now</div>
-                        </div>
-                        <div class="premium-category-card kurtisets-card">
-                            <h3>Kurtisets</h3>
-                            <ul class="sub-categories">
-                                <li>Traditional Sets</li>
-                                <li>Modern Ethnic</li>
-                                <li>Party Wear</li>
-                            </ul>
-                            <div class="category-cta">Explore Ethnic</div>
                         </div>
                     </div>
                 </div>
@@ -3340,39 +3451,29 @@
                         <div class="premium-category-card">
                             <h3>Tees</h3>
                             <ul class="sub-categories">
-                                <li>Classic Crew</li>
-                                <li>Oversized Fit</li>
-                                <li>Streetwear Baggy</li>
+                                <li>Tees</li>
+                                <li>Hoodies</li>
+                                <li>Oversized tees</li>
                             </ul>
-                            <div class="category-cta">Shop All Tees</div>
+                            <div class="category-cta">Shop All</div>
                         </div>
                         <div class="premium-category-card">
                             <h3>Custom Wear</h3>
                             <ul class="sub-categories">
-                                <li>Personalized Graphics</li>
-                                <li>Photo Print</li>
-                                <li>Team Jerseys</li>
-                                <li>"Be Your Own Designer"</li>
+                                <li>Tees</li>
+                                <li>Hoodies</li>
+                                <li>Oversized tees</li>
                             </ul>
                             <div class="category-cta">Start Designing</div>
                         </div>
                         <div class="premium-category-card">
                             <h3>Jerseys</h3>
                             <ul class="sub-categories">
-                                <li>Football Kits</li>
-                                <li>Basketball Tees</li>
-                                <li>Training Shorts</li>
+                                <li>Tees</li>
+                                <li>Hoodies</li>
+                                <li>Oversized tees</li>
                             </ul>
                             <div class="category-cta">View Sportswear</div>
-                        </div>
-                        <div class="premium-category-card">
-                            <h3>Winter Wear</h3>
-                            <ul class="sub-categories">
-                                <li>Heavy Hoodies</li>
-                                <li>Knitted Sweaters</li>
-                                <li>Zip-up Jackets</li>
-                            </ul>
-                            <div class="category-cta">Shop Winter</div>
                         </div>
                     </div>
                 </div>
@@ -4394,11 +4495,89 @@
             <div style="padding: 40px; display: flex; flex-direction: column; gap: 20px;">
                 <h2 id="quick-view-name" style="font-size: 2rem; font-family: 'Playfair Display', serif;"></h2>
                 <p id="quick-view-price" style="font-size: 1.5rem; font-weight: 700; color: #000;"></p>
+                <div id="quick-view-category-label" style="font-size: 1rem; color: #666; font-weight: 600;"></div>
                 <p id="quick-view-desc" style="color: #666; line-height: 1.6;"></p>
+
+                <div class="size-selection-container">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: 700;">Select Size:</span>
+                        <span class="size-chart-link" onclick="openSizeChart()" style="display: none;">View Size
+                            Chart</span>
+                    </div>
+                    <div class="size-selector" id="quick-view-size-selector">
+                        <div class="size-option" data-size="S">S</div>
+                        <div class="size-option" data-size="M">M</div>
+                        <div class="size-option active" data-size="L">L</div>
+                        <div class="size-option" data-size="XL">XL</div>
+                        <div class="size-option" data-size="XXL">XXL</div>
+                    </div>
+                </div>
+
                 <div style="margin-top: auto;">
                     <button class="btn" id="quick-view-add-to-cart" style="width: 100%;">Add to Cart</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Size Chart Modal -->
+    <div id="size-chart-modal">
+        <div class="size-chart-content">
+            <button class="close-btn" onclick="closeSizeChart()"
+                style="position: absolute; top: 15px; right: 15px;">&times;</button>
+            <h2 class="mb-20">Size Chart</h2>
+            <img src="https://github.com/ShabariES/OkayBruh/blob/main/size_chart.png?raw=true" alt="Size Chart"
+                id="size-chart-image">
+            <div style="margin-top: 20px;">
+                <p style="font-size: 14px; color: #666;">* Measurements are in inches. Standard fit.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Handover Modal -->
+    <div class="cropper-modal" id="whatsapp-handover-modal" style="display: none;">
+        <div class="premium-prompt-box" style="max-width: 500px; padding: 40px;">
+            <div
+                style="width: 70px; height: 70px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                <i class="fab fa-whatsapp" style="font-size: 2.5rem; color: #25D366;"></i>
+            </div>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px;">Final Step: Send
+                Confirmation</h2>
+            <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">WhatsApp will open shortly.
+                Please follow these steps:</p>
+
+            <div
+                style="text-align: left; background: #f9f9f9; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <div style="display: flex; gap: 12px; margin-bottom: 12px; align-items: center;">
+                    <div
+                        style="width: 24px; height: 24px; background: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;">
+                        1</div>
+                    <p style="font-size: 14px; font-weight: 600;">The order text is already prepared.</p>
+                </div>
+                <div style="display: flex; gap: 12px; margin-bottom: 12px; align-items: center;">
+                    <div
+                        style="width: 24px; height: 24px; background: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;">
+                        2</div>
+                    <p style="font-size: 14px; font-weight: 600;">Send the text message first.</p>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <div
+                        style="width: 24px; height: 24px; background: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;">
+                        3</div>
+                    <p style="font-size: 14px; font-weight: 600;">Attach your payment screenshot manually.</p>
+                </div>
+            </div>
+
+            <div id="handover-screenshot-preview" style="margin-bottom: 25px; display: none;">
+                <p style="font-size: 11px; color: #999; text-transform: uppercase; margin-bottom: 10px;">Your Uploaded
+                    Screenshot:</p>
+                <img id="handover-screenshot-img" src=""
+                    style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;">
+            </div>
+
+            <button class="btn btn-success" id="final-proceed-whatsapp" style="width: 100%; padding: 18px;">
+                <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> Open WhatsApp & Send
+            </button>
         </div>
     </div>
 
@@ -4522,6 +4701,23 @@
                 description: "Trendy oversized tee featuring exclusive artwork.",
                 stock: 50,
                 tags: ["tees", "oversized", "women", "new"],
+                featured: true
+            },
+            {
+                id: 105,
+                name: "OKAYBRUH Classic Tee",
+                price: 449,
+                category: "Tees",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/okay%20bruhh.jpg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/okay%20bruhh.jpg?raw=true",
+                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                ],
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
+                stock: 50,
+                tags: ["tees", "oversized", "unisex", "branded"],
                 featured: true
             },
 
@@ -5127,9 +5323,10 @@
                 newQvBtn.addEventListener('click', () => {
                     const name = document.getElementById('quick-view-name').innerText;
                     const product = products.find(p => p.name === name);
+                    const selectedSize = document.querySelector('#quick-view-size-selector .size-option.active')?.dataset.size || 'L';
                     if (product) {
-                        if (addToCart(product.id)) {
-                            showNotification(`${product.name} added to cart!`, 'success');
+                        if (addToCart(product.id, null, selectedSize)) {
+                            showNotification(`${product.name} (Size: ${selectedSize}) added to cart!`, 'success');
                             closeQuickView(); // Assuming closeQuickView exists or we find it
                             // Fallback close if function not found
                             document.getElementById('quick-view-modal').style.display = 'none';
@@ -5324,10 +5521,17 @@
             }
 
             if (filterSubCategory) {
-                filtered = filtered.filter(p =>
-                    (p.subCategory && p.subCategory.toLowerCase() === filterSubCategory.toLowerCase()) ||
-                    p.tags.some(tag => tag.toLowerCase() === filterSubCategory.toLowerCase())
-                );
+                const sub = filterSubCategory.toLowerCase();
+                filtered = filtered.filter(p => {
+                    const pSub = (p.subCategory || '').toLowerCase();
+                    const pTags = (p.tags || []).map(t => t.toLowerCase());
+
+                    return pSub === sub ||
+                        pTags.includes(sub) ||
+                        (sub === 'oversized tees' && (pSub === 'oversized' || pTags.includes('oversized') || pTags.includes('oversized tees'))) ||
+                        (sub === 'hoodies' && (pSub === 'hoodies' || pSub === 'hoodie' || pTags.includes('hoodie') || pTags.includes('winter wear'))) ||
+                        (sub === 'tees' && (pSub === 'regular' || pSub === 'classic' || pSub === 'tee' || pTags.includes('tees')));
+                });
             }
 
             if (filtered.length === 0) {
@@ -5397,6 +5601,14 @@
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
                     <p class="product-price">₹${product.price.toLocaleString()}</p>
+                    
+                    <div class="size-nudge">Select Size</div>
+                    <div class="product-card-sizes">
+                        ${['S', 'M', 'L', 'XL', 'XXL'].map(size => `
+                            <div class="card-size-option ${size === 'L' ? 'active' : ''}" data-size="${size}">${size}</div>
+                        `).join('')}
+                    </div>
+
                     <div class="product-actions">
                         <button class="btn btn-outline btn-sm add-to-cart" style="flex: 1;">Add to Cart</button>
                         <button class="btn btn-sm buy-now" style="flex: 1;">Buy Now</button>
@@ -5404,21 +5616,34 @@
                 </div>
             `;
 
+            let selectedCardSize = 'L';
+
+            // Size selection logic on card
+            const sizeOpts = card.querySelectorAll('.card-size-option');
+            sizeOpts.forEach(opt => {
+                opt.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    sizeOpts.forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                    selectedCardSize = opt.dataset.size;
+                });
+            });
+
             const addToCartBtn = card.querySelector('.add-to-cart');
             const buyNowBtn = card.querySelector('.buy-now');
 
             addToCartBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // Direct add to cart without customization prompt
-                if (addToCart(product.id)) {
-                    showNotification(`${product.name} added to cart!`, 'success');
+                // Direct add to cart with selected size
+                if (addToCart(product.id, null, selectedCardSize)) {
+                    showNotification(`${product.name} (Size: ${selectedCardSize}) added to cart!`, 'success');
                 }
             });
 
             buyNowBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // Direct buy now logic
-                cart = [{ id: product.id, name: product.name, price: product.price, quantity: 1, image: product.image }];
+                // Direct buy now logic with selected size
+                cart = [{ id: product.id, name: product.name, category: product.category, price: product.price, quantity: 1, size: selectedCardSize, image: product.image }];
                 saveCart();
                 updateCartCount();
                 openCart();
@@ -5517,7 +5742,7 @@
         // ============================================
         // CART FUNCTIONALITY
         // ============================================
-        function addToCart(productId, customDetails = null) {
+        function addToCart(productId, customDetails = null, size = 'L') {
             let cartItem;
 
             if (customDetails) {
@@ -5527,6 +5752,7 @@
                     name: `Custom ${customDetails.type}`,
                     price: APP_CONFIG.basePrice,
                     quantity: 1,
+                    size: size,
                     customDetails: customDetails,
                     image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
                 };
@@ -5549,7 +5775,7 @@
                     return false;
                 }
 
-                const existingItem = cart.find(item => String(item.id) === safeProductId);
+                const existingItem = cart.find(item => String(item.id) === safeProductId && item.size === size);
                 if (existingItem) {
                     existingItem.quantity++;
                     saveCart();
@@ -5562,7 +5788,9 @@
                     id: product.id, // storing original ID
                     name: product.name,
                     price: product.price,
+                    category: product.category,
                     quantity: 1,
+                    size: size,
                     image: product.image
                 };
             }
@@ -5614,12 +5842,15 @@
                 cartItem.className = 'cart-item';
                 cartItem.innerHTML = `
                     <img src="${item.image || 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'}" alt="${item.name}">
-                    <div class="cart-item-details">
-                        <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">₹${item.price.toLocaleString()}</div>
-                        <div class="cart-item-quantity">
+                    <div class="cart-item-details" style="flex: 1;">
+                        <div class="cart-item-name" style="font-weight: 700;">${item.name}</div>
+                        <div class="cart-item-meta" style="font-size: 0.85rem; color: #666; margin: 4px 0;">
+                            Size: <span style="font-weight: 700; color: #000;">${item.size || 'L'}</span> | Cat: ${item.category || 'Tees'}
+                        </div>
+                        <div class="cart-item-price" style="font-weight: 700;">₹${item.price.toLocaleString()}</div>
+                        <div class="cart-item-quantity" style="margin-top: 10px;">
                             <button class="quantity-btn decrease" data-index="${index}">-</button>
-                            <span>${item.quantity}</span>
+                            <span style="font-weight: 700; min-width: 20px; text-align: center;">${item.quantity}</span>
                             <button class="quantity-btn increase" data-index="${index}">+</button>
                         </div>
                     </div>
@@ -5840,12 +6071,10 @@
             saveCart();
             updateCartCount();
 
-            // Auto-open WhatsApp after 2 seconds
+            // Auto-open WhatsApp after a short delay
             setTimeout(() => {
-                if (uploadedScreenshot) {
-                    openWhatsApp();
-                }
-            }, 2000);
+                openWhatsApp();
+            }, 1500);
         }
 
         function validateShippingDetails() {
@@ -5895,7 +6124,7 @@
 
             summary += `*Order Summary:*\n`;
             currentOrder.items.forEach((item, index) => {
-                summary += `${index + 1}. ${item.name} x${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}\n`;
+                summary += `${index + 1}. ${item.name} [Size: ${item.size || 'L'}] x${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}\n`;
             });
 
             summary += `\n*Total Amount:* ₹${currentOrder.total.toLocaleString()}\n`;
@@ -6015,58 +6244,97 @@
             openWhatsApp();
         }
 
+        // Helper: Convert Data URL to File object for sharing
+        function dataURLtoFile(dataurl, filename) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new File([u8arr], filename, { type: mime });
+        }
+
         function openWhatsApp() {
             if (!currentOrder) {
                 showNotification('Please complete the order first', 'error');
                 return;
             }
 
-            // Format message
-            let message = `*${APP_CONFIG.appName} - Order Confirmation*\n\n`;
-            message += `*Order ID:* ${currentOrder.id}\n`;
-            message += `*Date:* ${new Date(currentOrder.date).toLocaleDateString('en-IN')}\n`;
-            message += `*Time:* ${new Date(currentOrder.date).toLocaleTimeString('en-IN')}\n\n`;
+            // Show custom handover modal
+            const handoverModal = document.getElementById('whatsapp-handover-modal');
+            const previewContainer = document.getElementById('handover-screenshot-preview');
+            const previewImg = document.getElementById('handover-screenshot-img');
+            const proceedBtn = document.getElementById('final-proceed-whatsapp');
 
-            message += `*Customer Details:*\n`;
-            message += `Name: ${currentOrder.shipping.name}\n`;
-            message += `Phone: ${currentOrder.shipping.phone}\n`;
-            message += `Email: ${currentOrder.shipping.email}\n`;
-            message += `Address: ${currentOrder.shipping.address}, ${currentOrder.shipping.city} - ${currentOrder.shipping.pincode}\n\n`;
-
-            message += `*Order Summary:*\n`;
-            currentOrder.items.forEach((item, index) => {
-                message += `${index + 1}. ${item.name} x${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}\n`;
-            });
-
-            message += `\n*Total Amount:* ₹${currentOrder.total.toLocaleString()}\n`;
-            message += `*Payment Method:* ${currentOrder.paymentMethod.toUpperCase()}\n`;
-            message += `*Status:* ${currentOrder.status}\n\n`;
-
-            message += `*Additional Notes:*\n`;
-            message += `- Payment screenshot has been uploaded\n`;
-            message += `- Please process this order\n`;
-            message += `- Contact customer for any clarification\n\n`;
-
-            message += `---\n`;
-            message += `Payment screenshot is attached separately.\n`;
-            message += `Please check the image for payment confirmation.\n`;
-
-            // Encode message for URL
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `${APP_CONFIG.whatsappUrl}?text=${encodedMessage}`;
-
-            // Open WhatsApp in new tab
-            const newWindow = window.open(whatsappUrl, '_blank');
-
-            // Show instructions for image attachment
-            if (newWindow) {
-                setTimeout(() => {
-                    alert('IMPORTANT: After WhatsApp opens:\n\n1. Send the order message first\n2. Then click the 📎 attachment icon\n3. Select "Gallery" or "Photos"\n4. Choose your payment screenshot\n5. Send the image\n\nMake sure both the text and image are sent!');
-                }, 1000);
+            if (uploadedScreenshot) {
+                previewImg.src = uploadedScreenshot;
+                previewContainer.style.display = 'block';
+            } else {
+                previewContainer.style.display = 'none';
             }
 
-            // Show success message
-            showNotification('WhatsApp opened! Please attach the payment screenshot manually.', 'info');
+            handoverModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+            proceedBtn.onclick = async () => {
+                // Format message
+                let message = `*${APP_CONFIG.appName} - Order Confirmation*\n\n`;
+                message += `*Order ID:* ${currentOrder.id}\n`;
+                message += `*Date:* ${new Date(currentOrder.date).toLocaleDateString('en-IN')}\n`;
+                message += `*Time:* ${new Date(currentOrder.date).toLocaleTimeString('en-IN')}\n\n`;
+
+                message += `*Customer Details:*\n`;
+                message += `Name: ${currentOrder.shipping.name}\n`;
+                message += `Phone: ${currentOrder.shipping.phone}\n`;
+                message += `Email: ${currentOrder.shipping.email}\n`;
+                message += `Address: ${currentOrder.shipping.address}, ${currentOrder.shipping.city} - ${currentOrder.shipping.pincode}\n\n`;
+
+                message += `*Order Summary:*\n`;
+                currentOrder.items.forEach((item, index) => {
+                    message += `${index + 1}. ${item.name} [Size: ${item.size || 'L'}] x${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}\n`;
+                });
+
+                message += `\n*Total Amount:* ₹${currentOrder.total.toLocaleString()}\n`;
+                message += `*Payment Method:* ${currentOrder.paymentMethod.toUpperCase()}\n`;
+                message += `*Status:* ${currentOrder.status}\n\n`;
+
+                message += `*Additional Notes:*\n`;
+                message += `- Payment screenshot has been uploaded to site\n`;
+                message += `- Please process this order\n\n`;
+
+                message += `---\n`;
+                message += `Pre-confirmed order details.`;
+
+                // Try to use Web Share API (best for mobile, supports pre-attaching images)
+                if (navigator.share && uploadedScreenshot) {
+                    try {
+                        const file = dataURLtoFile(uploadedScreenshot, `order-${currentOrder.id}.png`);
+                        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                            await navigator.share({
+                                files: [file],
+                                title: 'Order Confirmation - ' + currentOrder.id,
+                                text: message
+                            });
+                            handoverModal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                            showNotification('Order shared successfully!', 'success');
+                            return;
+                        }
+                    } catch (err) {
+                        console.log('Web Share failed, falling back to URL:', err);
+                    }
+                }
+
+                // Fallback: Standard WhatsApp URL (manual attachment required)
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `${APP_CONFIG.whatsappUrl}?text=${encodedMessage}`;
+                window.open(whatsappUrl, '_blank');
+
+                handoverModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+
+                showNotification('WhatsApp opened! Remember to attach the screenshot manually.', 'info');
+            };
         }
 
         // ============================================
@@ -7902,12 +8170,28 @@
             document.getElementById('quick-view-image').src = product.image;
             document.getElementById('quick-view-name').textContent = product.name;
             document.getElementById('quick-view-price').textContent = `₹${product.price.toLocaleString()}`;
+            document.getElementById('quick-view-category-label').textContent = `Category: ${product.category}`;
             document.getElementById('quick-view-desc').textContent = product.description;
+
+            // Reset size selection
+            let selectedSize = 'L';
+            const sizeOptions = document.querySelectorAll('#quick-view-size-selector .size-option');
+            sizeOptions.forEach(opt => {
+                opt.classList.remove('active');
+                if (opt.dataset.size === 'L') opt.classList.add('active');
+
+                // Add click listener
+                opt.onclick = () => {
+                    sizeOptions.forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                    selectedSize = opt.dataset.size;
+                };
+            });
 
             const addBtn = document.getElementById('quick-view-add-to-cart');
             addBtn.onclick = () => {
-                if (addToCart(product.id)) {
-                    showNotification(`${product.name} added to cart!`, 'success');
+                if (addToCart(product.id, null, selectedSize)) {
+                    showNotification(`${product.name} (Size: ${selectedSize}) added to cart!`, 'success');
                     closeQuickView();
                 }
             };
@@ -7915,6 +8199,14 @@
             document.getElementById('quick-view-modal').style.display = 'flex';
             document.getElementById('quick-view-modal').style.alignItems = 'center';
             document.body.style.overflow = 'hidden';
+        }
+
+        function openSizeChart() {
+            document.getElementById('size-chart-modal').style.display = 'flex';
+        }
+
+        function closeSizeChart() {
+            document.getElementById('size-chart-modal').style.display = 'none';
         }
 
         function closeQuickView() {
