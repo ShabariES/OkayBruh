@@ -5382,7 +5382,7 @@
                 saveCart();
                 updateCartCount();
             });
-            openWhatsappFinalBtn.addEventListener('click', openWhatsApp);
+            openWhatsappFinalBtn.addEventListener('click', handleWhatsAppSharing);
             copyOrderSummaryBtn.addEventListener('click', copyOrderSummary);
 
             // WhatsApp Integration
@@ -6071,10 +6071,8 @@
             saveCart();
             updateCartCount();
 
-            // Auto-open WhatsApp after a short delay
-            setTimeout(() => {
-                openWhatsApp();
-            }, 1500);
+            // Direct WhatsApp Flow (No intermediate modal)
+            handleWhatsAppSharing();
         }
 
         function validateShippingDetails() {
@@ -6230,7 +6228,7 @@
             paymentScreenshotInput.value = '';
         }
 
-        function shareOnWhatsApp() {
+        async function shareOnWhatsApp() {
             if (!currentOrder) {
                 showNotification('No order found. Please complete the payment first.', 'error');
                 return;
@@ -6241,7 +6239,7 @@
                 return;
             }
 
-            openWhatsApp();
+            await handleWhatsAppSharing();
         }
 
         // Helper: Convert Data URL to File object for sharing
@@ -6254,104 +6252,60 @@
             return new File([u8arr], filename, { type: mime });
         }
 
-        function openWhatsApp() {
+        async function handleWhatsAppSharing() {
             if (!currentOrder) {
                 showNotification('Please complete the order first', 'error');
                 return;
             }
 
-            // Show custom handover modal
-            const handoverModal = document.getElementById('whatsapp-handover-modal');
-            const previewContainer = document.getElementById('handover-screenshot-preview');
-            const previewImg = document.getElementById('handover-screenshot-img');
-            const proceedBtn = document.getElementById('final-proceed-whatsapp');
+            // Prepare message
+            let message = `*${APP_CONFIG.appName} - Order Confirmation*\n\n`;
+            message += `*Order ID:* ${currentOrder.id}\n`;
+            message += `*Date:* ${new Date(currentOrder.date).toLocaleDateString('en-IN')}\n\n`;
 
-            if (uploadedScreenshot) {
-                previewImg.src = uploadedScreenshot;
-                previewContainer.style.display = 'block';
-            } else {
-                previewContainer.style.display = 'none';
-            }
+            message += `*Customer Details:*\n`;
+            message += `Name: ${currentOrder.shipping.name}\n`;
+            message += `Phone: ${currentOrder.shipping.phone}\n`;
+            message += `Address: ${currentOrder.shipping.address}, ${currentOrder.shipping.city} - ${currentOrder.shipping.pincode}\n\n`;
 
-            handoverModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            message += `*Summary:*\n`;
+            currentOrder.items.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} (${item.size || 'L'}) x${item.quantity}\n`;
+            });
 
-            // Update modal text for directness
-            const modalTitle = handoverModal.querySelector('h2');
-            const modalP = handoverModal.querySelector('p');
-            if (modalTitle) modalTitle.textContent = `Send to ${APP_CONFIG.whatsappNumber}`;
-            if (modalP) modalP.innerHTML = `Opening WhatsApp to send your screenshot and order details directly to our team at <strong>${APP_CONFIG.whatsappNumber}</strong>.`;
+            message += `\n*Total:* ₹${currentOrder.total.toLocaleString()}\n`;
+            message += `*Payment:* ${currentOrder.paymentMethod.toUpperCase()}\n\n`;
+            message += `Direct Order Proof Attached.`;
 
-            // Auto-copy details
+            // Auto-copy to clipboard as secondary backup
             try {
-                const tempMessage = generateOrderSummaryForClipboard();
-                navigator.clipboard.writeText(tempMessage);
+                const tempMsg = generateOrderSummaryForClipboard();
+                navigator.clipboard.writeText(tempMsg);
             } catch (e) { }
 
-            proceedBtn.onclick = async () => {
-                // Format message
-                let message = `*${APP_CONFIG.appName} - Order Confirmation*\n\n`;
-                message += `*Order ID:* ${currentOrder.id}\n`;
-                message += `*Date:* ${new Date(currentOrder.date).toLocaleDateString('en-IN')}\n`;
-                message += `*Time:* ${new Date(currentOrder.date).toLocaleTimeString('en-IN')}\n\n`;
+            try {
+                // 1. Generate Combined Image (Screenshot + Details)
+                const combinedDataUrl = await generateCombinedImage();
+                const file = dataURLtoFile(combinedDataUrl || uploadedScreenshot, `order-${currentOrder.id}.png`);
 
-                message += `*Customer Details:*\n`;
-                message += `Name: ${currentOrder.shipping.name}\n`;
-                message += `Phone: ${currentOrder.shipping.phone}\n`;
-                message += `Email: ${currentOrder.shipping.email}\n`;
-                message += `Address: ${currentOrder.shipping.address}, ${currentOrder.shipping.city} - ${currentOrder.shipping.pincode}\n\n`;
-
-                message += `*Order Summary:*\n`;
-                currentOrder.items.forEach((item, index) => {
-                    message += `${index + 1}. ${item.name} [Size: ${item.size || 'L'}] x${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}\n`;
-                });
-
-                message += `\n*Total Amount:* ₹${currentOrder.total.toLocaleString()}\n`;
-                message += `*Payment Method:* ${currentOrder.paymentMethod.toUpperCase()}\n`;
-                message += `*Status:* ${currentOrder.status}\n\n`;
-
-                message += `*Additional Notes:*\n`;
-                message += `- Payment screenshot has been uploaded to site\n`;
-                message += `- Please process this order\n\n`;
-
-                message += `---\n`;
-                message += `Direct Order Proof.`;
-
-                try {
-                    // 1. Generate Combined Image (Screenshot + Details)
-                    const combinedDataUrl = await generateCombinedImage();
-                    const file = dataURLtoFile(combinedDataUrl || uploadedScreenshot, `order-${currentOrder.id}.png`);
-
-                    // 2. Try to use Web Share API (best for mobile)
-                    if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-                        await navigator.share({
-                            files: [file],
-                            title: 'Order Confirmation - ' + currentOrder.id,
-                            text: message
-                        });
-                        handoverModal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                        showNotification('Order proof shared successfully!', 'success');
-                        return;
-                    }
-                } catch (err) {
-                    console.error('Direct share failed:', err);
+                // 2. Try to use Web Share API (Best for Mobile)
+                if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+                    await navigator.share({
+                        files: [file],
+                        title: 'Order Confirmation - ' + currentOrder.id,
+                        text: message
+                    });
+                    showNotification('Order shared successfully!', 'success');
+                    return;
                 }
+            } catch (err) {
+                console.error('Direct share failed:', err);
+            }
 
-                // Fallback: Standard WhatsApp URL if Share API fails
-                try {
-                    await navigator.clipboard.writeText(message);
-                } catch (e) { }
-
-                // Force target number in URL
-                const directUrl = `${APP_CONFIG.whatsappUrl}?text=${encodeURIComponent(message)}`;
-                window.open(directUrl, '_blank');
-
-                handoverModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-
-                showNotification(`Opening WhatsApp for ${APP_CONFIG.whatsappNumber}...`, 'info');
-            };
+            // Fallback: Redirect directly to WhatsApp URL
+            const directUrl = `${APP_CONFIG.whatsappUrl}?text=${encodeURIComponent(message)}`;
+            window.open(directUrl, '_blank');
+            showNotification(`Redirecting to WhatsApp for ${APP_CONFIG.whatsappNumber}...`, 'info');
         }
 
         // NEW: Merge Order Details onto Screenshot for 'Direct' Sharing
