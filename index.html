@@ -4623,10 +4623,10 @@
         // ============================================
         const APP_CONFIG = {
             appName: 'OKAYBRUH',
-            whatsappNumber: '916369035633',
+            whatsappNumber: '6369035633',
             whatsappUrl: 'https://wa.me/916369035633',
             adminEmail: 'adminn@okaybruh.com',
-            basePrice: 1999,
+            basePrice: 359,
             freeShippingThreshold: 500,
             upiId: 'shabaries2866@oksbi',
             storeName: 'OKAYBRUH Fashion Store'
@@ -6279,8 +6279,8 @@
             // Update modal text for directness
             const modalTitle = handoverModal.querySelector('h2');
             const modalP = handoverModal.querySelector('p');
-            if (modalTitle) modalTitle.textContent = "Send to +91 6369035633";
-            if (modalP) modalP.innerHTML = "Opening WhatsApp to send your screenshot and order details directly to our team.";
+            if (modalTitle) modalTitle.textContent = `Send to ${APP_CONFIG.whatsappNumber}`;
+            if (modalP) modalP.innerHTML = `Opening WhatsApp to send your screenshot and order details directly to our team at <strong>${APP_CONFIG.whatsappNumber}</strong>.`;
 
             // Auto-copy details
             try {
@@ -6344,13 +6344,13 @@
                 } catch (e) { }
 
                 // Force target number in URL
-                const directUrl = `https://wa.me/916369035633?text=${encodeURIComponent(message)}`;
+                const directUrl = `${APP_CONFIG.whatsappUrl}?text=${encodeURIComponent(message)}`;
                 window.open(directUrl, '_blank');
 
                 handoverModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
 
-                showNotification('Opening WhatsApp for +91 6369035633...', 'info');
+                showNotification(`Opening WhatsApp for ${APP_CONFIG.whatsappNumber}...`, 'info');
             };
         }
 
