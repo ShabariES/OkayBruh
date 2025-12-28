@@ -6276,7 +6276,13 @@
             handoverModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
 
-            // Auto-copy details as a background safety measure
+            // Update modal text for directness
+            const modalTitle = handoverModal.querySelector('h2');
+            const modalP = handoverModal.querySelector('p');
+            if (modalTitle) modalTitle.textContent = "Send to +91 6369035633";
+            if (modalP) modalP.innerHTML = "Opening WhatsApp to send your screenshot and order details directly to our team.";
+
+            // Auto-copy details
             try {
                 const tempMessage = generateOrderSummaryForClipboard();
                 navigator.clipboard.writeText(tempMessage);
@@ -6309,43 +6315,127 @@
                 message += `- Please process this order\n\n`;
 
                 message += `---\n`;
-                message += `*Instructions:* Please paste the order details here (already copied to your clipboard) and attach the screenshot shown on the website.`;
+                message += `Direct Order Proof.`;
 
-                // Try to use Web Share API (best for mobile, supports pre-attaching images)
-                if (navigator.share && uploadedScreenshot) {
-                    try {
-                        const file = dataURLtoFile(uploadedScreenshot, `order-${currentOrder.id}.png`);
-                        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                            await navigator.share({
-                                files: [file],
-                                title: 'Order Confirmation - ' + currentOrder.id,
-                                text: message
-                            });
-                            handoverModal.style.display = 'none';
-                            document.body.style.overflow = 'auto';
-                            showNotification('Order shared successfully!', 'success');
-                            return;
-                        }
-                    } catch (err) {
-                        console.log('Web Share failed, falling back to URL:', err);
+                try {
+                    // 1. Generate Combined Image (Screenshot + Details)
+                    const combinedDataUrl = await generateCombinedImage();
+                    const file = dataURLtoFile(combinedDataUrl || uploadedScreenshot, `order-${currentOrder.id}.png`);
+
+                    // 2. Try to use Web Share API (best for mobile)
+                    if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+                        await navigator.share({
+                            files: [file],
+                            title: 'Order Confirmation - ' + currentOrder.id,
+                            text: message
+                        });
+                        handoverModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        showNotification('Order proof shared successfully!', 'success');
+                        return;
                     }
+                } catch (err) {
+                    console.error('Direct share failed:', err);
                 }
 
-                // Fallback: Standard WhatsApp URL (manual attachment required)
-                // Copy one more time just to be sure
+                // Fallback: Standard WhatsApp URL if Share API fails
                 try {
                     await navigator.clipboard.writeText(message);
                 } catch (e) { }
 
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappUrl = `${APP_CONFIG.whatsappUrl}?text=${encodedMessage}`;
-                window.open(whatsappUrl, '_blank');
+                // Force target number in URL
+                const directUrl = `https://wa.me/916369035633?text=${encodeURIComponent(message)}`;
+                window.open(directUrl, '_blank');
 
                 handoverModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
 
-                showNotification('Details copied! Now just paste and attach the screenshot in WhatsApp.', 'info');
+                showNotification('Opening WhatsApp for +91 6369035633...', 'info');
             };
+        }
+
+        // NEW: Merge Order Details onto Screenshot for 'Direct' Sharing
+        async function generateCombinedImage() {
+            if (!uploadedScreenshot || !currentOrder) return null;
+
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.crossOrigin = "anonymous";
+                img.onload = function () {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    // Set canvas size (image + detail banner at bottom)
+                    canvas.width = img.width;
+                    const bannerHeight = Math.max(300, img.height * 0.4);
+                    canvas.height = img.height + bannerHeight;
+
+                    // Fill white background
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    // Draw original screenshot
+                    ctx.drawImage(img, 0, 0);
+
+                    // Draw Dark Banner
+                    ctx.fillStyle = '#000000';
+                    ctx.fillRect(0, img.height, canvas.width, bannerHeight);
+
+                    // Draw Details Text
+                    ctx.fillStyle = '#ffffff';
+                    const padding = canvas.width * 0.05;
+                    const fontSizeMain = Math.floor(bannerHeight * 0.12);
+                    const fontSizeSub = Math.floor(bannerHeight * 0.07);
+
+                    ctx.font = `bold ${fontSizeMain}px Montserrat, Arial, sans-serif`;
+                    let y = img.height + (bannerHeight * 0.15);
+                    ctx.fillText(`${APP_CONFIG.appName} - CONFIRMED ORDER`, padding, y);
+
+                    ctx.font = `${fontSizeSub}px Montserrat, Arial, sans-serif`;
+                    y += bannerHeight * 0.1;
+                    ctx.fillText(`ORDER ID: ${currentOrder.id}`, padding, y);
+
+                    y += bannerHeight * 0.08;
+                    const totalVal = currentOrder.total.toLocaleString('en-IN');
+                    ctx.fillText(`TOTAL: ₹${totalVal}`, padding, y);
+
+                    y += bannerHeight * 0.08;
+                    const dateVal = new Date(currentOrder.date).toLocaleDateString('en-IN');
+                    ctx.fillText(`DATE: ${dateVal}`, padding, y);
+
+                    y += bannerHeight * 0.08;
+                    const itemsVal = currentOrder.items.map(i => `${i.name} (${i.size || 'L'})`).join(', ');
+                    ctx.fillText(`ITEM(S): ${itemsVal}`, padding, y);
+
+                    // Add Address
+                    y += bannerHeight * 0.08;
+                    const shipInfo = `SHIP TO: ${currentOrder.shipping.name} (${currentOrder.shipping.phone}), ${currentOrder.shipping.address}, ${currentOrder.shipping.city} - ${currentOrder.shipping.pincode}`;
+
+                    const maxWidth = canvas.width - (padding * 2);
+                    const wordsWrap = shipInfo.split(' ');
+                    let currentLineText = '';
+                    for (let n = 0; n < wordsWrap.length; n++) {
+                        const testL = currentLineText + wordsWrap[n] + ' ';
+                        if (ctx.measureText(testL).width > maxWidth && n > 0) {
+                            ctx.fillText(currentLineText, padding, y);
+                            currentLineText = wordsWrap[n] + ' ';
+                            y += bannerHeight * 0.06;
+                        } else {
+                            currentLineText = testL;
+                        }
+                    }
+                    ctx.fillText(currentLineText, padding, y);
+
+                    // Draw store name at bottom right
+                    ctx.font = `italic ${Math.floor(fontSizeSub * 0.8)}px Montserrat, Arial, sans-serif`;
+                    ctx.textAlign = 'right';
+                    ctx.fillText(APP_CONFIG.storeName, canvas.width - padding, canvas.height - (bannerHeight * 0.1));
+
+                    resolve(canvas.toDataURL('image/png', 0.9));
+                };
+                img.onerror = () => resolve(null);
+                img.src = uploadedScreenshot;
+            });
         }
 
         // Helper: Generate a clean version of the message for the clipboard
@@ -6353,12 +6443,14 @@
             if (!currentOrder) return "";
             let msg = `*${APP_CONFIG.appName} Order*\n`;
             msg += `ID: ${currentOrder.id}\n`;
+            msg += `Customer: ${currentOrder.shipping.name}\n`;
+            msg += `Phone: ${currentOrder.shipping.phone}\n`;
+            msg += `Address: ${currentOrder.shipping.address}, ${currentOrder.shipping.city} - ${currentOrder.shipping.pincode}\n`;
             msg += `Items:\n`;
             currentOrder.items.forEach((item, i) => {
                 msg += `${i + 1}. ${item.name} (${item.size || 'L'}) x${item.quantity}\n`;
             });
             msg += `Total: ₹${currentOrder.total}\n`;
-            msg += `Address: ${currentOrder.shipping.address}, ${currentOrder.shipping.city}\n`;
             return msg;
         }
 
