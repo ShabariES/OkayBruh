@@ -3380,100 +3380,74 @@
             <div class="container">
                 <h2 class="section-title">Shop By Category</h2>
                 <div class="category-grid">
-                    <div class="category-card">
-                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Hoodies">
-                        <div class="category-name">Hoodies</div>
-                    </div>
-                    <div class="category-card">
+                    <div class="category-card" onclick="filterByCategory('T-Shirt')">
                         <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="T-Shirts">
-                        <div class="category-name">T-Shirts</div>
+                            alt="T-Shirt">
+                        <div class="category-name">T-Shirt</div>
                     </div>
-                    <div class="category-card">
-                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Suit Sets">
-                        <div class="category-name">Suit Sets</div>
+                    <div class="category-card" onclick="filterByCategory('Baggy')">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                            alt="Baggy">
+                        <div class="category-name">Baggy</div>
                     </div>
-                    <div class="category-card">
-                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Sarees">
-                        <div class="category-name">Sarees</div>
+                    <div class="category-card" onclick="filterByCategory('Customized')">
+                        <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                            alt="Customized">
+                        <div class="category-name">Customized</div>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('Oversized')">
+                        <img src="https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                            alt="Oversized">
+                        <div class="category-name">Oversized</div>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('Jersey')">
+                        <img src="https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                            alt="Jersey">
+                        <div class="category-name">Jersey</div>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('Sweater')">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                            alt="Sweater">
+                        <div class="category-name">Sweater</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Gender Categories Section -->
+            <!-- Gender Collections Section -->
             <div class="container" id="collections-section">
-                <div class="gender-nav">
-                    <button class="gender-btn active" data-gender-target="women">Women</button>
-                    <button class="gender-btn" data-gender-target="men">Men</button>
-                </div>
-
-                <!-- Women Section -->
-                <div id="women-categories-section" class="gender-section active">
-                    <h2 class="section-title">Women's Collection</h2>
+                <!-- Our Collection Section -->
+                <div id="unisex-categories-section" class="gender-section active">
+                    <h2 class="section-title">Our Collection</h2>
                     <div class="premium-category-grid">
-                        <div class="premium-category-card">
-                            <h3>Tees</h3>
-                            <ul class="sub-categories">
-                                <li>Tees</li>
-                                <li>Hoodies</li>
-                                <li>Oversized tees</li>
-                            </ul>
-                            <div class="category-cta">Shop All</div>
+                        <div class="premium-category-card" onclick="filterByCategory('T-Shirt')">
+                            <h3>T-Shirt</h3>
+                            <p>Premium regular fit - ₹315</p>
+                            <div class="category-cta">Shop Collection</div>
                         </div>
-                        <div class="premium-category-card">
-                            <h3>Custom Wear</h3>
-                            <ul class="sub-categories">
-                                <li>Tees</li>
-                                <li>Hoodies</li>
-                                <li>Oversized tees</li>
-                            </ul>
+                        <div class="premium-category-card" onclick="filterByCategory('Baggy')">
+                            <h3>Baggy</h3>
+                            <p>Streetstyle comfort - ₹449</p>
+                            <div class="category-cta">Shop Collection</div>
+                        </div>
+                        <div class="premium-category-card" onclick="filterByCategory('Oversized')">
+                            <h3>Oversized</h3>
+                            <p>Urban relaxed fit - ₹369</p>
+                            <div class="category-cta">Shop Collection</div>
+                        </div>
+                        <div class="premium-category-card" onclick="filterByCategory('Customized')">
+                            <h3>Customized</h3>
+                            <p>Design your own - ₹469</p>
                             <div class="category-cta">Start Designing</div>
                         </div>
-                        <div class="premium-category-card">
-                            <h3>Jerseys</h3>
-                            <ul class="sub-categories">
-                                <li>Tees</li>
-                                <li>Hoodies</li>
-                                <li>Oversized tees</li>
-                            </ul>
-                            <div class="category-cta">View Sportswear</div>
+                        <div class="premium-category-card" onclick="filterByCategory('Jersey')">
+                            <h3>Jersey</h3>
+                            <p>Sportswear performance - ₹369</p>
+                            <div class="category-cta">View Collection</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Men Section -->
-                <div id="men-categories-section" class="gender-section">
-                    <h2 class="section-title">Men's Collection</h2>
-                    <div class="premium-category-grid">
-                        <div class="premium-category-card">
-                            <h3>Tees</h3>
-                            <ul class="sub-categories">
-                                <li>Tees</li>
-                                <li>Hoodies</li>
-                                <li>Oversized tees</li>
-                            </ul>
-                            <div class="category-cta">Shop All</div>
-                        </div>
-                        <div class="premium-category-card">
-                            <h3>Custom Wear</h3>
-                            <ul class="sub-categories">
-                                <li>Tees</li>
-                                <li>Hoodies</li>
-                                <li>Oversized tees</li>
-                            </ul>
-                            <div class="category-cta">Start Designing</div>
-                        </div>
-                        <div class="premium-category-card">
-                            <h3>Jerseys</h3>
-                            <ul class="sub-categories">
-                                <li>Tees</li>
-                                <li>Hoodies</li>
-                                <li>Oversized tees</li>
-                            </ul>
-                            <div class="category-cta">View Sportswear</div>
+                        <div class="premium-category-card" onclick="filterByCategory('Sweater')">
+                            <h3>Sweater</h3>
+                            <p>Winter essentials - ₹459</p>
+                            <div class="category-cta">View Collection</div>
                         </div>
                     </div>
                 </div>
@@ -3573,12 +3547,12 @@
                             <label class="control-label">Product Base</label>
                             <select id="product-type"
                                 style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd;">
-                                <option value="hoodie">Premium Hoodie</option>
-                                <option value="tshirt">Classic T-Shirt</option>
-                                <option value="jersey">Performance Jersey</option>
-                                <option value="oversized">Oversized Tee</option>
-                                <option value="kurta">Men's Kurta</option>
-                                <option value="sudidhar">Women's Sudidhar</option>
+                                <option value="tshirt">T-Shirt</option>
+                                <option value="baggy">Baggy</option>
+                                <option value="customized">Customized</option>
+                                <option value="oversized">Oversized</option>
+                                <option value="jersey">Jersey</option>
+                                <option value="sweater">Sweater</option>
                             </select>
                         </div>
 
@@ -3624,7 +3598,7 @@
 
                         <div style="margin-top: auto; display: flex; flex-direction: column; gap: 15px;">
                             <button class="studio-btn studio-btn-primary" id="add-custom-to-cart">
-                                <i class="fas fa-shopping-bag"></i> Add to Cart - ₹1,999
+                                <i class="fas fa-shopping-bag"></i> Add to Cart - ₹469
                             </button>
                             <button class="studio-btn" id="reset-customization"
                                 style="background: none; border: 1px solid #ddd;">
@@ -4626,7 +4600,7 @@
             whatsappNumber: '6369035633',
             whatsappUrl: 'https://wa.me/916369035633',
             adminEmail: 'adminn@okaybruh.com',
-            basePrice: 359,
+            basePrice: 469,
             freeShippingThreshold: 500,
             upiId: 'shabaries2866@oksbi',
             storeName: 'OKAYBRUH Fashion Store'
@@ -4634,18 +4608,36 @@
 
         // Initial products data
         let products = [
-            // WOMEN'S TEES (Regular, Oversized, Baggy)
+            // TEES (Regular, Oversized, Baggy)
             {
                 id: 101,
-                name: "Sunset Peach Oversized Tee",
-                price: 399,
-                category: "Tees",
-                gender: "women",
+                name: "Chainman Saw - Denji ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
                 subCategory: "oversized",
-                image: "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/c2.jpeg?raw=true",
                 images: [
-                    "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    "https://github.com/ShabariES/OkayBruh/blob/main/c2.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/c1.jpeg?raw=true"
+                ],
+                description: "Soft peach oversized tee with dropped shoulders.",
+                stock: 45,
+                tags: ["tees", "oversized", "cotton"],
+                featured: true
+            },
+            
+            {
+                id: 102,
+                name: "Chainman Saw - Denji ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/c3.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/c3.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/c1.jpeg?raw=true"
                 ],
                 description: "Soft peach oversized tee with dropped shoulders.",
                 stock: 45,
@@ -4653,67 +4645,101 @@
                 featured: true
             },
             {
-                id: 102,
-                name: "Midnight Black Regular Tee",
-                price: 299,
-                category: "Tees",
-                gender: "women",
-                subCategory: "regular",
-                image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "Perfect fit black tee made from organic cotton.",
-                stock: 60,
-                tags: ["tees", "regular"],
-                featured: false
-            },
-            {
                 id: 103,
-                name: "Vintage White Baggy Tee",
-                price: 449,
-                category: "Tees",
-                gender: "women",
-                subCategory: "baggy",
-                image: "https://images.unsplash.com/photo-1571945153237-4929e78394af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                name: "Chainman Saw - Makkima ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/c4.jpeg?raw=true",
                 images: [
-                    "https://images.unsplash.com/photo-1571945153237-4929e78394af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    "https://github.com/ShabariES/OkayBruh/blob/main/c4.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/c1.jpeg?raw=true"
                 ],
-                description: "Street-style baggy tee in vintage off-white.",
-                stock: 30,
-                tags: ["tees", "baggy", "urban"],
+                description: "Soft peach oversized tee with dropped shoulders.",
+                stock: 45,
+                tags: ["tees", "oversized", "cotton"],
                 featured: true
             },
             {
                 id: 104,
-                name: "AirBlue Oversized Tee",
-                price: 539,
-                category: "Tees",
-                gender: "women",
+                name: "Chainman Saw - Power ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%203.51.49%20PM.jpeg?raw=true",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/c5.jpeg?raw=true",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%203.51.49%20PM.jpeg?raw=true",
-                    "https://images.unsplash.com/photo-1554568212-32670f0f3b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    "https://github.com/ShabariES/OkayBruh/blob/main/c5.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/c1.jpeg?raw=true"
                 ],
-                description: "Trendy oversized tee featuring exclusive artwork.",
-                stock: 50,
-                tags: ["tees", "oversized", "women", "new"],
+                description: "Soft peach oversized tee with dropped shoulders.",
+                stock: 45,
+                tags: ["tees", "oversized", "cotton"],
                 featured: true
             },
             {
-                id: 105,
-                name: "OKAYBRUH Classic Tee",
-                price: 449,
-                category: "Tees",
+                id: 106,
+                name: "Demon Slayer - Kyojuro Rengoku ",
+                price: 459,
+                category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/okay%20bruhh.jpg?raw=true",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/d2.jpeg?raw=true",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/okay%20bruhh.jpg?raw=true",
-                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    "https://github.com/ShabariES/OkayBruh/blob/main/d2.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true"
+                ],
+                description: "Perfect fit black tee made from organic cotton.",
+                stock: 60,
+                tags: ["tees", "oversized", "cotton"],
+                featured: false
+            },
+            {
+                id: 107,
+                name: "Demon Slayer - Tanjiro Kamado ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/d3.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/d3.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true"
+                ],
+                description: "Street-style baggy tee in vintage off-white.",
+                stock: 30,
+                tags: ["tees", "oversized", "urban"],
+                featured: true
+            },
+            {
+                id: 108,
+                name: "Demon Slayer - Nezuko Kamado ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/d4.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/d4.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true"
+                ],
+                description: "Trendy oversized tee featuring exclusive artwork.",
+                stock: 50,
+                tags: ["tees", "oversized", "new"],
+                featured: true
+            },
+            {
+                id: 109,
+                name: "Demon Slayer - Inosuke Hashibira ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/d5.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/d5.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4721,217 +4747,302 @@
                 featured: true
             },
 
-            // MEN'S TEES (Classic, Oversized, Streetwear Baggy)
+            // TEES (Classic, Oversized, Streetwear Baggy)
             {
-                id: 201,
-                name: "Graphic Street Baggy Tee",
-                price: 499,
-                category: "Tees",
-                gender: "men",
-                subCategory: "baggy",
-                image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "Heavyweight baggy tee with rear graphic print.",
-                stock: 35,
-                tags: ["tees", "baggy", "streetwear"],
-                featured: true
-            },
-            {
-                id: 202,
-                name: "Sage Green Oversized Fit",
-                price: 399,
-                category: "Tees",
-                gender: "men",
+                id: 110,
+                name: "Saiyan - Black ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
                 subCategory: "oversized",
-                image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/g2.jpeg?raw=true",
                 images: [
-                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    "https://github.com/ShabariES/OkayBruh/blob/main/g2.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/g1.jpeg?raw=true"
                 ],
-                description: "Minimalist sage green tee in oversized cut.",
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
-                tags: ["tees", "oversized"],
-                featured: false
-            },
-            {
-                id: 203,
-                name: "Spiderman Designed Fit",
-                price: 349,
-                category: "Tees",
-                gender: "men",
-                subCategory: "regular",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%206.35.18%20PM.jpeg?raw=true",
-                images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/WhatsApp%20Image%202025-12-28%20at%206.35.18%20PM.jpeg?raw=true",
-                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "Essential navy crew neck for versatile styling.",
-                stock: 55,
-                tags: ["tees", "regular"],
-                featured: false
-            },
-
-            // WINTER WEAR (Men & Women)
-            {
-                id: 301,
-                name: "Luxe Mauve Hoodie",
-                price: 549,
-                category: "Winter Wear",
-                gender: "women",
-                subCategory: "hoodies",
-                image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "Premium mauve hoodie with brushed interior.",
-                stock: 25,
-                tags: ["hoodies", "winter", "women"],
+                tags: ["tees", "oversized", "unisex", "branded"],
                 featured: true
             },
             {
-                id: 302,
-                name: "Charcoal Grey Tech Sweater",
-                price: 499,
-                category: "Winter Wear",
-                gender: "women",
-                subCategory: "sweaters",
-                image: "https://images.unsplash.com/photo-1574167132712-49ac6b28532c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                id: 111,
+                name: "Saiyan - Goku ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/g3.jpeg?raw=true",
                 images: [
-                    "https://images.unsplash.com/photo-1574167132712-49ac6b28532c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    "https://github.com/ShabariES/OkayBruh/blob/main/g3.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/g1.jpeg?raw=true"
                 ],
-                description: "Ribbed knit charcoal sweater in tech fabric.",
-                stock: 35,
-                tags: ["sweaters", "winter"],
-                featured: false
-            },
-            {
-                id: 303,
-                name: "Coal Black Cargo Hoodie",
-                price: 599,
-                category: "Winter Wear",
-                gender: "men",
-                subCategory: "heavy hoodies",
-                image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "Streetwear black hoodie with utility pocket.",
-                stock: 30,
-                tags: ["hoodies", "winter", "men"],
-                featured: true
-            },
-            {
-                id: 304,
-                name: "Alpine Zip Jacket",
-                price: 599,
-                category: "Winter Wear",
-                gender: "men",
-                subCategory: "zip-up jackets",
-                image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "Insulated zip-up jacket for peak winter.",
-                stock: 18,
-                tags: ["winter", "jackets", "men"],
-                featured: true
-            },
-
-            // JERSEYS
-            {
-                id: 501,
-                name: "Strike Force Jersey",
-                price: 449,
-                category: "Jerseys",
-                gender: "men",
-                subCategory: "football kits",
-                image: "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "Performance football kit with breathability.",
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
-                tags: ["jerseys", "football", "active"],
+                tags: ["tees", "oversized", "unisex", "branded"],
                 featured: true
             },
             {
-                id: 502,
-                name: "Dribble Elite Basketball",
-                price: 399,
-                category: "Jerseys",
-                gender: "men",
-                subCategory: "basketball tees",
-                image: "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                id: 112,
+                name: "Saiyan - Kakarot ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/g4.jpeg?raw=true",
                 images: [
-                    "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    "https://github.com/ShabariES/OkayBruh/blob/main/g4.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/g1.jpeg?raw=true"
                 ],
-                description: "Lightweight basketball tank in vivid colors.",
-                stock: 45,
-                tags: ["jerseys", "basketball"],
-                featured: false
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
+                stock: 50,
+                tags: ["tees", "oversized", "unisex", "branded"],
+                featured: true
             },
             {
-                id: 503,
-                name: "Active Sport Shorts",
-                price: 349,
-                category: "Jerseys",
-                gender: "women",
-                subCategory: "shorts",
-                image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                id: 113,
+                name: "Saiyan - Goku ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/g5.jpeg?raw=true",
                 images: [
-                    "https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    "https://github.com/ShabariES/OkayBruh/blob/main/g5.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/g1.jpeg?raw=true"
                 ],
-                description: "Flexible high-performance training shorts.",
-                stock: 60,
-                tags: ["jerseys", "shorts", "women"],
-                featured: false
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
+                stock: 50,
+                tags: ["tees", "oversized", "unisex", "branded"],
+                featured: true
+            },
+            {
+                id: 114,
+                name: "Naruto - Uchiha - Itachi ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/u2.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/u2.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/u1.jpeg?raw=true"
+                ],
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
+                stock: 50,
+                tags: ["tees", "oversized", "unisex", "branded"],
+                featured: true
+            },
+            {
+                id: 115,
+                name: "Naruto - Uchiha - Sasuke ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/u3.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/u3.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/u1.jpeg?raw=true"
+                ],
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
+                stock: 50,
+                tags: ["tees", "oversized", "unisex", "branded"],
+                featured: true
+            },
+            {
+                id: 116,
+                name: "Naruto - Uchiha - Sasuke ",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/k2.jpeg?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/k2.jpeg?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/k1.jpeg?raw=true"
+                ],
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
+                stock: 50,
+                tags: ["tees", "oversized", "unisex", "branded"],
+                featured: true
+            },
+            {
+                id: 116,
+                name: "AirBlue - Lara",
+                price: 459,
+                category: "Oversized",
+                gender: "unisex",
+                subCategory: "oversized",
+                image: "https://github.com/ShabariES/OkayBruh/blob/main/Gemini_Generated_Image_2ix6ps2ix6ps2ix6.png?raw=true",
+                images: [
+                    "https://github.com/ShabariES/OkayBruh/blob/main/Gemini_Generated_Image_2ix6ps2ix6ps2ix6.png?raw=true",
+                    "https://github.com/ShabariES/OkayBruh/blob/main/Gemini_Generated_Image_cytojfcytojfcyto.png?raw=true"
+                ],
+                description: "Classic OKAYBRUH branded oversized tee with premium quality.",
+                stock: 50,
+                tags: ["tees", "oversized", "unisex", "branded"],
+                featured: true
             },
 
-            // CUSTOM WEAR
-            {
-                id: 601,
-                name: "Identity Name Tee",
-                price: 399,
-                category: "Custom Wear",
-                gender: "unisex",
-                subCategory: "name printed tees",
-                image: "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "Customizable name print on heavy cotton.",
-                stock: 999,
-                tags: ["custom", "personalized"],
-                featured: true
-            },
-            {
-                id: 602,
-                name: "Memory Photo Print",
-                price: 499,
-                category: "Custom Wear",
-                gender: "unisex",
-                subCategory: "photo print tees",
-                image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                images: [
-                    "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                ],
-                description: "High-resolution photo print on premium white tee.",
-                stock: 999,
-                tags: ["custom", "photo"],
-                featured: true
-            }
+            // WINTER WEAR
+            // {
+            //     id: 301,
+            //     name: "Luxe Mauve Hoodie",
+            //     price: 459,
+            //     category: "Sweater",
+            //     gender: "unisex",
+            //     subCategory: "hoodies",
+            //     image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "Premium mauve hoodie with brushed interior.",
+            //     stock: 25,
+            //     tags: ["hoodies", "winter"],
+            //     featured: true
+            // },
+            // {
+            //     id: 302,
+            //     name: "Charcoal Grey Tech Sweater",
+            //     price: 459,
+            //     category: "Sweater",
+            //     gender: "unisex",
+            //     subCategory: "sweaters",
+            //     image: "https://images.unsplash.com/photo-1574167132712-49ac6b28532c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1574167132712-49ac6b28532c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "Ribbed knit charcoal sweater in tech fabric.",
+            //     stock: 35,
+            //     tags: ["sweaters", "winter"],
+            //     featured: false
+            // },
+            // {
+            //     id: 303,
+            //     name: "Coal Black Cargo Hoodie",
+            //     price: 459,
+            //     category: "Sweater",
+            //     gender: "unisex",
+            //     subCategory: "heavy hoodies",
+            //     image: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "Streetwear black hoodie with utility pocket.",
+            //     stock: 30,
+            //     tags: ["hoodies", "winter"],
+            //     featured: true
+            // },
+            // {
+            //     id: 304,
+            //     name: "Alpine Zip Jacket",
+            //     price: 459,
+            //     category: "Sweater",
+            //     gender: "unisex",
+            //     subCategory: "zip-up jackets",
+            //     image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "Insulated zip-up jacket for peak winter.",
+            //     stock: 18,
+            //     tags: ["winter", "jackets"],
+            //     featured: true
+            // },
+
+            // // JERSEYS
+            // {
+            //     id: 501,
+            //     name: "Strike Force Jersey",
+            //     price: 369,
+            //     category: "Jersey",
+            //     gender: "unisex",
+            //     subCategory: "football kits",
+            //     image: "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "Performance football kit with breathability.",
+            //     stock: 50,
+            //     tags: ["jerseys", "football", "active"],
+            //     featured: true
+            // },
+            // {
+            //     id: 502,
+            //     name: "Dribble Elite Basketball",
+            //     price: 369,
+            //     category: "Jersey",
+            //     gender: "unisex",
+            //     subCategory: "basketball tees",
+            //     image: "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1517466787929-bc94263f5c5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "Lightweight basketball tank in vivid colors.",
+            //     stock: 45,
+            //     tags: ["jerseys", "basketball"],
+            //     featured: false
+            // },
+            // {
+            //     id: 503,
+            //     name: "Active Sport Shorts",
+            //     price: 369,
+            //     category: "Jersey",
+            //     gender: "unisex",
+            //     subCategory: "shorts",
+            //     image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1518310383802-640c2de311b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "Flexible high-performance training shorts.",
+            //     stock: 60,
+            //     tags: ["jerseys", "shorts"],
+            //     featured: false
+            // },
+
+            // // CUSTOM WEAR
+            // {
+            //     id: 601,
+            //     name: "Identity Name Tee",
+            //     price: 469,
+            //     category: "Customized",
+            //     gender: "unisex",
+            //     subCategory: "name printed tees",
+            //     image: "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "Customizable name print on heavy cotton.",
+            //     stock: 999,
+            //     tags: ["custom", "personalized"],
+            //     featured: true
+            // },
+            // {
+            //     id: 602,
+            //     name: "Memory Photo Print",
+            //     price: 469,
+            //     category: "Customized",
+            //     gender: "unisex",
+            //     subCategory: "photo print tees",
+            //     image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //     images: [
+            //         "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+            //         "https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+            //     ],
+            //     description: "High-resolution photo print on premium white tee.",
+            //     stock: 999,
+            //     tags: ["custom", "photo"],
+            //     featured: true
+            // }
         ];
 
         let cart = JSON.parse(localStorage.getItem('OKAYBRUH_cart')) || [];
@@ -5184,8 +5295,6 @@
             // Initialize customers from orders
             updateCustomersFromOrders();
 
-            // Setup new gender toggle
-            setupGenderToggle();
 
             // Setup category filtering
             setupCategoryFiltering();
@@ -5222,40 +5331,16 @@
             });
         }
 
-        function setupGenderToggle() {
-            const genderBtns = document.querySelectorAll('.gender-btn');
-            const genderSections = document.querySelectorAll('.gender-section');
-            const featuredTitle = document.getElementById('featured-title');
-
-            genderBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons and sections
-                    genderBtns.forEach(b => b.classList.remove('active'));
-                    genderSections.forEach(s => s.classList.remove('active'));
-
-                    // Add active class to clicked button and target section
-                    btn.classList.add('active');
-                    const target = btn.getAttribute('data-gender-target');
-                    document.getElementById(`${target}-categories-section`).classList.add('active');
-
-                    // Reset to show all for this gender
-                    const gender = target === 'women' ? 'women' : 'men';
-                    featuredTitle.textContent = `${gender.charAt(0).toUpperCase() + gender.slice(1)}'s Featured Products`;
-                    loadProducts(null, gender);
-                });
-            });
-        }
 
         function setupCategoryFiltering() {
             // Category Cards and CTAs
             document.querySelectorAll('.premium-category-card').forEach(card => {
                 const categoryName = card.querySelector('h3').textContent.trim();
-                const gender = card.closest('.gender-section').id.includes('women') ? 'women' : 'men';
 
                 // Main card click (except if clicking a sub-category)
                 card.addEventListener('click', (e) => {
                     if (!e.target.closest('.sub-categories')) {
-                        filterAndScroll(categoryName, gender);
+                        filterAndScroll(categoryName);
                     }
                 });
 
@@ -5264,7 +5349,7 @@
                 if (cta) {
                     cta.addEventListener('click', (e) => {
                         e.stopPropagation();
-                        filterAndScroll(categoryName, gender);
+                        filterAndScroll(categoryName);
                     });
                 }
             });
@@ -5275,19 +5360,18 @@
                     e.stopPropagation();
                     const subName = li.textContent.trim();
                     const categoryName = li.closest('.premium-category-card').querySelector('h3').textContent.trim();
-                    const gender = li.closest('.gender-section').id.includes('women') ? 'women' : 'men';
-                    filterAndScroll(categoryName, gender, subName);
+                    filterAndScroll(categoryName, subName);
                 });
             });
         }
 
-        function filterAndScroll(category, gender, subCategory = null) {
+        function filterAndScroll(category, subCategory = null) {
             const featuredTitle = document.getElementById('featured-title');
-            let displayTitle = `${gender.charAt(0).toUpperCase() + gender.slice(1)}'s ${category}`;
+            let displayTitle = `Our ${category}`;
             if (subCategory) displayTitle += ` - ${subCategory}`;
 
             featuredTitle.textContent = displayTitle;
-            loadProducts(category, gender, subCategory);
+            loadProducts(category, null, subCategory);
 
             // Scroll to product section
             document.getElementById('featured-title').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -5504,14 +5588,18 @@
         // ============================================
         // PRODUCT MANAGEMENT
         // ============================================
+        function filterByCategory(category) {
+            navigateToSection('products');
+            loadProducts(category);
+            // Optionally scroll to products if already in the section
+            const target = document.getElementById('featured-title');
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+
         function loadProducts(filterCategory = null, filterGender = null, filterSubCategory = null) {
             productGrid.innerHTML = '';
 
             let filtered = products;
-
-            if (filterGender && filterGender !== 'all') {
-                filtered = filtered.filter(p => p.gender === filterGender || p.gender === 'unisex');
-            }
 
             if (filterCategory) {
                 filtered = filtered.filter(p =>
