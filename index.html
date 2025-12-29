@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         /* Reset & Base Styles */
@@ -3562,6 +3563,10 @@
                                 style="background: none; border: 1px solid #ddd;">
                                 Reset Design
                             </button>
+                            <button class="studio-btn" id="share-design-email"
+                                style="background: #10b981; color: white; border: none;">
+                                <i class="fas fa-envelope"></i> Share Design via Email
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -5679,6 +5684,7 @@
             // Customization
             addCustomToCartBtn.addEventListener('click', addCustomProductToCart);
             resetCustomizationBtn.addEventListener('click', resetCustomization);
+            document.getElementById('share-design-email').addEventListener('click', handleDesignSharing);
 
             // Payment
             paymentMethods.forEach(method => {
@@ -6618,6 +6624,57 @@
                 const emailUrl = `mailto:workechonet@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 window.location.href = emailUrl;
             }, 1500);
+        }
+
+        async function handleDesignSharing() {
+            const studioPreview = document.getElementById('studio-preview');
+            const productType = document.getElementById('product-type').value;
+            const customText = document.getElementById('custom-text-input').value;
+
+            showNotification('Generating design preview...', 'info');
+
+            try {
+                // Generate image from the studio preview div
+                const canvas = await html2canvas(studioPreview, {
+                    useCORS: true,
+                    backgroundColor: null,
+                    scale: 2 // Higher quality
+                });
+
+                const dataUrl = canvas.toDataURL('image/png');
+
+                // Download the image
+                const link = document.createElement('a');
+                link.href = dataUrl;
+                link.download = `MY-DESIGN-${new Date().getTime()}.png`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                showNotification('Design downloaded! Opening email...', 'success');
+
+                // Prepare Email
+                const subject = `My Custom Design Inquiry - ${APP_CONFIG.appName}`;
+                let body = `Hello Team,\n\nI have designed a custom product on your website. Here are the details:\n\n`;
+                body += `Base Product: ${productType.toUpperCase()}\n`;
+                body += `Custom Text: "${customText}"\n`;
+                body += `\nI have attached the design preview image (and my artwork if any) to this email.\n`;
+                body += `\nPlease let me know the price and availability.\n`;
+
+                setTimeout(() => {
+                    const emailUrl = `mailto:workechonet@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = emailUrl;
+                }, 1500);
+
+            } catch (err) {
+                console.error("Design generation failed:", err);
+                showNotification('Could not generate image automatically. Please screenshot and share.', 'warning');
+                // Fallback email open
+                setTimeout(() => {
+                    const emailUrl = `mailto:workechonet@gmail.com?subject=My Custom Design Inquiry`;
+                    window.location.href = emailUrl;
+                }, 1000);
+            }
         }
 
         // NEW: Merge Order Details onto Screenshot for 'Direct' Sharing
