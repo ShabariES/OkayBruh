@@ -3375,40 +3375,7 @@
                 </div>
             </div>
 
-            <!-- Categories -->
-            <div class="container">
-                <h2 class="section-title">Shop By Category</h2>
-                <div class="category-grid">
-                    <div class="category-card" onclick="filterByCategory('T-Shirt')">
-                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="T-Shirt">
-                        <div class="category-name">T-Shirt</div>
-                    </div>
-                    <div class="category-card" onclick="filterByCategory('Baggy')">
-                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Baggy">
-                        <div class="category-name">Baggy</div>
-                    </div>
-                    <div class="category-card" onclick="filterByCategory('Customized')">
-                        <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Customized">
-                        <div class="category-name">Customized</div>
-                    </div>
-                    <div class="category-card" onclick="filterByCategory('Oversized')">
-                        <img src="https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true" alt="Oversized">
-                        <div class="category-name">Oversized</div>
-                    </div>
-                    <div class="category-card" onclick="filterByCategory('Jersey')">
-                        <img src="https://i.pinimg.com/736x/6e/32/f3/6e32f3202413f8c6c6a6f59bbad67007.jpg" alt="Jersey">
-                        <div class="category-name">Jersey</div>
-                    </div>
-                    <div class="category-card" onclick="filterByCategory('Sweater')">
-                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Sweater">
-                        <div class="category-name">Sweater</div>
-                    </div>
-                </div>
-            </div>
+
 
 
 
@@ -4291,6 +4258,31 @@
                 </div>
             </div>
         </section>
+        <!-- Shop By Category (Moved to end) -->
+        <div class="container" style="margin-top: 60px; margin-bottom: 60px;">
+            <h2 class="section-title">Shop By Category</h2>
+            <div class="category-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="category-card" onclick="filterByCategory('Tshirts')">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="T-Shirt">
+                    <div class="category-name">T-Shirt</div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Baggy')">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="Baggy">
+                    <div class="category-name">Baggy</div>
+                </div>
+                <div class="category-card" onclick="navigateToSection('customization')">
+                    <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                        alt="Customized">
+                    <div class="category-name">Customized</div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Oversized')">
+                    <img src="https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true" alt="Oversized">
+                    <div class="category-name">Oversized</div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -4449,8 +4441,12 @@
                     </div>
                 </div>
 
-                <div style="margin-top: auto;">
-                    <button class="btn" id="quick-view-add-to-cart" style="width: 100%;">Add to Cart</button>
+                <div style="margin-top: auto; display: flex; gap: 10px;">
+                    <button class="btn" id="quick-view-add-to-cart" style="flex: 1;">Add to Cart</button>
+                    <button class="btn btn-outline" id="quick-view-personalize"
+                        style="flex: 1; border-color: #6c5ce7; color: #6c5ce7;">
+                        <i class="fas fa-magic"></i> Personalize
+                    </button>
                 </div>
             </div>
         </div>
@@ -4577,10 +4573,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/c2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/c2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/c1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c1.jpeg"
                 ],
                 description: "Soft peach oversized tee with dropped shoulders.",
                 stock: 45,
@@ -4595,10 +4591,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/c3.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c3.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/c3.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/c1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c3.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c1.jpeg"
                 ],
                 description: "Soft peach oversized tee with dropped shoulders.",
                 stock: 45,
@@ -4612,10 +4608,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/c4.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c4.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/c4.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/c1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c4.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c1.jpeg"
                 ],
                 description: "Soft peach oversized tee with dropped shoulders.",
                 stock: 45,
@@ -4629,10 +4625,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/c5.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c5.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/c5.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/c1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c5.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/c1.jpeg"
                 ],
                 description: "Soft peach oversized tee with dropped shoulders.",
                 stock: 45,
@@ -4646,10 +4642,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/d2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/d2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d1.jpeg"
                 ],
                 description: "Perfect fit black tee made from organic cotton.",
                 stock: 60,
@@ -4663,14 +4659,14 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/d3.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d3.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/d3.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d3.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d1.jpeg"
                 ],
                 description: "Street-style baggy tee in vintage off-white.",
                 stock: 30,
-                tags: ["tees", "oversized", "urban"],
+                tags: ["tees", "oversized", "urban", "baggy"],
                 featured: true
             },
             {
@@ -4680,10 +4676,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/d4.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d4.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/d4.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d4.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d1.jpeg"
                 ],
                 description: "Trendy oversized tee featuring exclusive artwork.",
                 stock: 50,
@@ -4697,14 +4693,14 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/d5.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d5.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/d5.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d5.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d1.jpeg"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
-                tags: ["tees", "oversized", "unisex", "branded"],
+                tags: ["tees", "oversized", "unisex", "branded", "baggy"],
                 featured: true
             },
 
@@ -4716,10 +4712,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/g2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/g2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/g1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g1.jpeg"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4733,10 +4729,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/g3.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g3.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/g3.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/g1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g3.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g1.jpeg"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4750,10 +4746,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/g4.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g4.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/g4.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/g1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g4.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g1.jpeg"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4767,10 +4763,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/g5.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g5.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/g5.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/g1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g5.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/g1.jpeg"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4784,10 +4780,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/u2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/u2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/u2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/u1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/u2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/u1.jpeg"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4801,10 +4797,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/u3.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/u3.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/u3.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/u1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/u3.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/u1.jpeg"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4818,10 +4814,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/k2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/k2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/k2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/k1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/k2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/k1.jpeg"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4835,10 +4831,10 @@
                 category: "Oversized",
                 gender: "unisex",
                 subCategory: "oversized",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/Gemini_Generated_Image_2ix6ps2ix6ps2ix6.png?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/Gemini_Generated_Image_2ix6ps2ix6ps2ix6.png",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/Gemini_Generated_Image_2ix6ps2ix6ps2ix6.png?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/Gemini_Generated_Image_cytojfcytojfcyto.png?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/Gemini_Generated_Image_2ix6ps2ix6ps2ix6.png",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/Gemini_Generated_Image_cytojfcytojfcyto.png"
                 ],
                 description: "Classic OKAYBRUH branded oversized tee with premium quality.",
                 stock: 50,
@@ -4854,10 +4850,10 @@
                 category: "Sweats",
                 gender: "unisex",
                 subCategory: "sweats",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/s1.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s1.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s1.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s1.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s1.jpeg"
                 ],
                 description: "Premium black sweat tshirt with brushed interior.",
                 stock: 25,
@@ -4871,10 +4867,10 @@
                 category: "Sweats",
                 gender: "unisex",
                 subCategory: "sweats",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/s2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s2.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s2.jpeg"
                 ],
                 description: "Premium green sweat tshirt with brushed interior.",
                 stock: 25,
@@ -4888,10 +4884,10 @@
                 category: "Sweats",
                 gender: "unisex",
                 subCategory: "sweats",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/s3.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s3.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s3.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s3.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s3.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s3.jpeg"
                 ],
                 description: "Premium white sweat tshirt with brushed interior.",
                 stock: 25,
@@ -4905,10 +4901,10 @@
                 category: "Tshirts",
                 gender: "unisex",
                 subCategory: "tshirts",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/s4.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s4.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s4.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s4.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s4.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s4.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior.",
                 stock: 25,
@@ -4922,10 +4918,10 @@
                 category: "Tshirts",
                 gender: "unisex",
                 subCategory: "tshirts",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/s5.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s5.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s5.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s5.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s5.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s5.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior..",
                 stock: 25,
@@ -4939,10 +4935,10 @@
                 category: "Tshirts",
                 gender: "unisex",
                 subCategory: "tshirts",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/s6.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s6.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s6.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s6.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s6.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s6.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior.",
                 stock: 25,
@@ -4956,10 +4952,10 @@
                 category: "Tshirts",
                 gender: "unisex",
                 subCategory: "tshirts",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/s7.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s7.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s7.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/s7.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s7.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/s7.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior.",
                 stock: 25,
@@ -4973,10 +4969,10 @@
                 category: "Tshirts",
                 gender: "unisex",
                 subCategory: "tshirts",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/t1.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t1.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/t1.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/t1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t1.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t1.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior.",
                 stock: 25,
@@ -4990,10 +4986,10 @@
                 category: "Tshirts",
                 gender: "unisex",
                 subCategory: "tshirts",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/t2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/t2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/t2.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t2.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior.",
                 stock: 25,
@@ -5007,10 +5003,10 @@
                 category: "Tshirts",
                 gender: "unisex",
                 subCategory: "tshirts",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/t3.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t3.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/t3.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/t3.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t3.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/t3.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior.",
                 stock: 25,
@@ -5024,10 +5020,10 @@
                 category: "Hoodies",
                 gender: "unisex",
                 subCategory: "hoodies",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/h1.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h1.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/h1.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/h1.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h1.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h1.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior.",
                 stock: 25,
@@ -5041,10 +5037,10 @@
                 category: "Hoodies",
                 gender: "unisex",
                 subCategory: "hoodies",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/h2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/h2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/h2.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h2.jpeg"
                 ],
                 description: "Premium tshirt with brushed interior.",
                 stock: 25,
@@ -5058,10 +5054,10 @@
                 category: "Hoodies",
                 gender: "unisex",
                 subCategory: "hoodies",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/h3.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h3.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/h3.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/h3.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h3.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h3.jpeg"
                 ],
                 description: "Premium hoodie with brushed interior.",
                 stock: 25,
@@ -5075,10 +5071,10 @@
                 category: "Jerseys",
                 gender: "unisex",
                 subCategory: "jerseys",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/j1.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j1.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/j1.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/h3.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j1.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h3.jpeg"
                 ],
                 description: "Premium jersey with brushed interior.",
                 stock: 25,
@@ -5092,10 +5088,10 @@
                 category: "Jerseys",
                 gender: "unisex",
                 subCategory: "jerseys",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/j2.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j2.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/j2.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/h3.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/h3.jpeg"
                 ],
                 description: "Premium jersey with brushed interior.",
                 stock: 25,
@@ -5109,10 +5105,10 @@
                 category: "Jerseys",
                 gender: "unisex",
                 subCategory: "jerseys",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/j3.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j3.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/j3.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/j3.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j3.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j3.jpeg"
                 ],
                 description: "Premium jersey with brushed interior.",
                 stock: 25,
@@ -5126,10 +5122,10 @@
                 category: "Jerseys",
                 gender: "unisex",
                 subCategory: "jerseys",
-                image: "https://github.com/ShabariES/OkayBruh/blob/main/j4.jpeg?raw=true",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j4.jpeg",
                 images: [
-                    "https://github.com/ShabariES/OkayBruh/blob/main/j4.jpeg?raw=true",
-                    "https://github.com/ShabariES/OkayBruh/blob/main/j4.jpeg?raw=true"
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j4.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/j4.jpeg"
                 ],
                 description: "Premium jersey with brushed interior.",
                 stock: 25,
@@ -5935,6 +5931,9 @@
                         <button class="btn btn-outline btn-sm add-to-cart" style="flex: 1;">Add to Cart</button>
                         <button class="btn btn-sm buy-now" style="flex: 1;">Buy Now</button>
                     </div>
+                    <button class="btn btn-secondary btn-sm customize-product-btn" style="width: 100%; margin-top: 10px; background: #6c5ce7; color: white; border: none; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 11px; padding: 10px; display:none">
+                        <i class="fas fa-magic" style="margin-right: 5px;"></i> Customize Design
+                    </button>
                 </div>
             `;
 
@@ -5971,8 +5970,16 @@
                 openCart();
             });
 
-            card.addEventListener('click', () => {
-                showQuickView(product.id);
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.product-actions') && !e.target.closest('.customize-product-btn') && !e.target.closest('.product-wishlist') && !e.target.closest('.product-card-sizes')) {
+                    showQuickView(product.id);
+                }
+            });
+
+            const customizeBtn = card.querySelector('.customize-product-btn');
+            customizeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                customizeProduct(product);
             });
 
             return card;
@@ -6061,6 +6068,37 @@
             document.body.style.overflow = 'auto';
         }
 
+        let customizationBaseProduct = null;
+
+        function customizeProduct(product) {
+            customizationBaseProduct = product;
+
+            // Set the preview image to the product image
+            const preview = document.getElementById('preview-image');
+            preview.src = product.image;
+
+            // Update the product type select to indicate it's a specific product
+            const typeSelect = document.getElementById('product-type');
+
+            let customOption = Array.from(typeSelect.options).find(opt => opt.value === 'custom-individual-product');
+            if (!customOption) {
+                customOption = document.createElement('option');
+                customOption.value = 'custom-individual-product';
+                typeSelect.add(customOption);
+            }
+            customOption.textContent = `Custom: ${product.name}`;
+            typeSelect.value = 'custom-individual-product';
+
+            // Also update the price on the button
+            const addToCartBtn = document.getElementById('add-custom-to-cart');
+            if (addToCartBtn) {
+                addToCartBtn.innerHTML = `<i class="fas fa-shopping-bag"></i> Add to Cart - ₹${product.price}`;
+            }
+
+            navigateToSection('customization');
+            showNotification(`Now customizing: ${product.name}`, 'info');
+        }
+
         // ============================================
         // CART FUNCTIONALITY
         // ============================================
@@ -6071,12 +6109,12 @@
                 // Custom product
                 cartItem = {
                     id: `custom-${Date.now()}`,
-                    name: `Custom ${customDetails.type}`,
-                    price: APP_CONFIG.basePrice,
+                    name: customDetails.baseProductName ? `Customized ${customDetails.baseProductName}` : `Custom ${customDetails.type}`,
+                    price: customDetails.price || APP_CONFIG.basePrice,
                     quantity: 1,
                     size: size,
                     customDetails: customDetails,
-                    image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+                    image: customDetails.screenshot || 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
                 };
             } else {
 
@@ -6637,7 +6675,8 @@
                 // Generate image from the studio preview div
                 const canvas = await html2canvas(studioPreview, {
                     useCORS: true,
-                    backgroundColor: null,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff', // Force white background
                     scale: 2 // Higher quality
                 });
 
@@ -6655,8 +6694,9 @@
 
                 // Prepare Email
                 const subject = `My Custom Design Inquiry - ${APP_CONFIG.appName}`;
+                const baseName = customizationBaseProduct ? customizationBaseProduct.name : productType.toUpperCase();
                 let body = `Hello Team,\n\nI have designed a custom product on your website. Here are the details:\n\n`;
-                body += `Base Product: ${productType.toUpperCase()}\n`;
+                body += `Product: ${baseName}\n`;
                 body += `Custom Text: "${customText}"\n`;
                 body += `\nI have attached the design preview image (and my artwork if any) to this email.\n`;
                 body += `\nPlease let me know the price and availability.\n`;
@@ -6987,13 +7027,28 @@
         document.getElementById('product-type').addEventListener('change', (e) => {
             const type = e.target.value;
             const preview = document.getElementById('preview-image');
+
+            // If user switches away from custom product, clear the tracking
+            if (type !== 'custom-individual-product') {
+                customizationBaseProduct = null;
+                const addToCartBtn = document.getElementById('add-custom-to-cart');
+                if (addToCartBtn) {
+                    addToCartBtn.innerHTML = `<i class="fas fa-shopping-bag"></i> Add to Cart - ₹${APP_CONFIG.basePrice}`;
+                }
+            } else if (customizationBaseProduct) {
+                // If they picked it back, restore image
+                preview.src = customizationBaseProduct.image;
+                return;
+            }
+
             const BASES = {
                 hoodie: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
                 tshirt: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
                 jersey: 'https://images.unsplash.com/photo-1580087444677-32049f578aa6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-                oversized: 'https://github.com/ShabariES/OkayBruh/blob/main/d1.jpeg?raw=true',
-                // kurta: 'https://images.unsplash.com/photo-1597983073491-0946059449dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-                // sudidhar: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+                oversized: 'https://raw.githubusercontent.com/ShabariES/OkayBruh/main/d1.jpeg',
+                customized: 'https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                baggy: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                sweater: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
             };
             preview.src = BASES[type] || BASES.hoodie;
         });
@@ -7009,12 +7064,18 @@
                 text: text,
                 color: color,
                 font: font,
-                screenshot: document.getElementById('preview-image').src // simplified
+                screenshot: document.getElementById('preview-image').src,
+                baseProductId: customizationBaseProduct ? customizationBaseProduct.id : null,
+                baseProductName: customizationBaseProduct ? customizationBaseProduct.name : null,
+                price: customizationBaseProduct ? customizationBaseProduct.price : APP_CONFIG.basePrice
             };
 
             addToCart(null, customDetails);
-            showNotification(`Custom ${type} added to cart!`, 'success');
+            showNotification(`Custom ${customizationBaseProduct ? customizationBaseProduct.name : type} added to cart!`, 'success');
             navigateToSection('home');
+
+            // Clear tracking after adding
+            customizationBaseProduct = null;
         }
 
         function resetCustomization() {
@@ -8635,6 +8696,14 @@
                     closeQuickView();
                 }
             };
+
+            const personalizeBtn = document.getElementById('quick-view-personalize');
+            if (personalizeBtn) {
+                personalizeBtn.onclick = () => {
+                    closeQuickView();
+                    customizeProduct(product);
+                };
+            }
 
             document.getElementById('quick-view-modal').style.display = 'flex';
             document.getElementById('quick-view-modal').style.alignItems = 'center';
