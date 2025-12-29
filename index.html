@@ -3763,35 +3763,34 @@
                             </div>
                         </div>
 
-                        <!-- WhatsApp Integration -->
-                        <div class="whatsapp-section" id="whatsapp-section">
-                            <h3><i class="fab fa-whatsapp"></i> WhatsApp Order Confirmation</h3>
+                        <!-- Email Integration -->
+                        <div class="email-section" id="email-section">
+                            <h3><i class="fas fa-envelope"></i> Email Order Confirmation</h3>
                             <p>After completing your payment, please follow these steps to confirm your order:</p>
 
-                            <div class="whatsapp-steps">
+                            <div class="email-steps">
                                 <ol>
                                     <li>Complete the payment using the selected method above</li>
                                     <li>Take a <strong>screenshot of your payment confirmation</strong></li>
                                     <li>Upload the screenshot below</li>
-                                    <li>Click the WhatsApp button to share your order details with us</li>
-                                    <li>Our team will contact you within 24 hours to confirm your order</li>
+                                    <li>Click the Email button to share your order details with us</li>
+                                    <li>Our team will process your order and send a confirmation</li>
                                 </ol>
                             </div>
 
-                            <!-- WhatsApp Image Instructions -->
-                            <div class="whatsapp-image-instructions">
-                                <h4>How to Send Screenshot on WhatsApp:</h4>
+                            <!-- Email Image Instructions -->
+                            <div class="email-image-instructions">
+                                <h4>How to Send Screenshot via Email:</h4>
                                 <ol>
-                                    <li>Click "Share Order on WhatsApp" button</li>
-                                    <li>WhatsApp will open with the order details</li>
-                                    <li><strong>Manually attach the screenshot</strong> by clicking the 📎 attachment
-                                        icon in WhatsApp</li>
-                                    <li>Select "Gallery" and choose your payment screenshot</li>
-                                    <li>Send the message with both text and image</li>
+                                    <li>Click "Share Order via Email" button</li>
+                                    <li>Your email client will open with order details pre-filled</li>
+                                    <li><strong>Manually attach the screenshot</strong> (we'll also try to auto-generate
+                                        a combined image for you)</li>
+                                    <li>Send the email to confirm your order</li>
                                 </ol>
                             </div>
 
-                            <div class="whatsapp-upload">
+                            <div class="email-upload">
                                 <div class="upload-area" id="upload-area">
                                     <i class="fas fa-cloud-upload-alt"></i>
                                     <p><strong>Upload Payment Screenshot</strong></p>
@@ -3807,20 +3806,20 @@
                                         Screenshot</button>
                                 </div>
 
-                                <button class="btn btn-success mt-20" id="share-whatsapp" style="width: 100%;">
-                                    <i class="fab fa-whatsapp"></i> Share Order on WhatsApp
+                                <button class="btn btn-success mt-20" id="share-email" style="width: 100%;">
+                                    <i class="fas fa-envelope"></i> Share Order via Email
                                 </button>
 
-                                <!-- Alternative WhatsApp Method -->
-                                <div class="whatsapp-image-instructions mt-30">
+                                <!-- Alternative Email Method -->
+                                <div class="email-image-instructions mt-30">
                                     <h4>Alternative Method:</h4>
                                     <p>If you have issues, you can:</p>
                                     <ol>
                                         <li>Save the order details below</li>
-                                        <li>Open WhatsApp manually</li>
-                                        <li>Send the order details first</li>
-                                        <li>Then send the screenshot separately</li>
-                                        <li>Our WhatsApp number: <strong>+91 6369035633</strong></li>
+                                        <li>Open your Email manually</li>
+                                        <li>Compose email to: <strong>shabaries2866@gmail.com</strong></li>
+                                        <li>Subject: Order Confirmation - [Your Order ID]</li>
+                                        <li>Paste details and attach screenshot</li>
                                     </ol>
                                 </div>
                             </div>
@@ -3854,24 +3853,24 @@
                                 </button>
                             </div>
 
-                            <p style="color: #25D366; margin-top: 20px;">
-                                <i class="fab fa-whatsapp"></i>
-                                <strong>Please share your payment screenshot on WhatsApp to complete the
+                            <p style="color: #10b981; margin-top: 20px;">
+                                <i class="fas fa-envelope"></i>
+                                <strong>Please share your payment screenshot via Email to complete the
                                     process.</strong>
                             </p>
 
-                            <div class="whatsapp-image-instructions mt-20">
+                            <div class="email-image-instructions mt-20">
                                 <h4>Important:</h4>
-                                <p>When sharing on WhatsApp:</p>
+                                <p>When sending via Email:</p>
                                 <ol>
-                                    <li>First send the order summary (copied above)</li>
-                                    <li>Then attach your payment screenshot</li>
-                                    <li>Make sure both are sent to us</li>
+                                    <li>We will try to generate a combined image for you to attach</li>
+                                    <li>Please attach your payment screenshot if the combined image fails</li>
+                                    <li>Ensure the email is sent to <strong>shabaries2866@gmail.com</strong></li>
                                 </ol>
                             </div>
 
-                            <button class="btn btn-success mt-30" id="open-whatsapp-final">
-                                <i class="fab fa-whatsapp"></i> Open WhatsApp Now
+                            <button class="btn btn-success mt-30" id="open-email-final">
+                                <i class="fas fa-envelope"></i> Send via Email Now
                             </button>
                             <button class="btn btn-outline mt-20" id="continue-shopping">Continue Shopping</button>
                         </div>
@@ -4466,8 +4465,8 @@
         </div>
     </div>
 
-    <!-- WhatsApp Handover Modal -->
-    <div class="cropper-modal" id="whatsapp-handover-modal" style="display: none;">
+    <!-- Email Handover Modal -->
+    <div class="cropper-modal" id="email-handover-modal" style="display: none;">
         <div class="premium-prompt-box" style="max-width: 500px; padding: 40px;">
             <div
                 style="width: 70px; height: 70px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
@@ -4556,8 +4555,6 @@
         // ============================================
         const APP_CONFIG = {
             appName: 'OKAYBRUH',
-            whatsappNumber: '6369035633',
-            whatsappUrl: 'https://wa.me/916369035633',
             adminEmail: 'adminn@okaybruh.com',
             basePrice: 469,
             freeShippingThreshold: 500,
@@ -5445,7 +5442,7 @@
         const confirmPaymentBtn = document.getElementById('confirm-payment');
         const backToShopFromPaymentBtn = document.getElementById('back-to-shop-from-payment');
         const continueShoppingBtn = document.getElementById('continue-shopping');
-        const openWhatsappFinalBtn = document.getElementById('open-whatsapp-final');
+        const openEmailFinalBtn = document.getElementById('open-email-final');
         const qrCodeImage = document.getElementById('qr-code-image');
         const upiIdDisplay = document.getElementById('upi-id-display');
         const orderIdElement = document.getElementById('order-id');
@@ -5460,7 +5457,7 @@
         const screenshotPreview = document.getElementById('screenshot-preview');
         const screenshotPreviewImage = document.getElementById('screenshot-preview-image');
         const removeScreenshotBtn = document.getElementById('remove-screenshot');
-        const shareWhatsappBtn = document.getElementById('share-whatsapp');
+        const shareEmailBtn = document.getElementById('share-email');
 
         // Shipping Details
         const shippingName = document.getElementById('shipping-name');
@@ -5697,7 +5694,7 @@
                 saveCart();
                 updateCartCount();
             });
-            openWhatsappFinalBtn.addEventListener('click', handleEmailSharing);
+            openEmailFinalBtn.addEventListener('click', handleEmailSharing);
             copyOrderSummaryBtn.addEventListener('click', copyOrderSummary);
 
             // WhatsApp Integration
@@ -5706,7 +5703,7 @@
             uploadArea.addEventListener('drop', handleFileDrop);
             paymentScreenshotInput.addEventListener('change', handleFileSelect);
             removeScreenshotBtn.addEventListener('click', removeScreenshot);
-            shareWhatsappBtn.addEventListener('click', shareViaEmail);
+            shareEmailBtn.addEventListener('click', shareViaEmail);
 
             // Admin
             backToShopBtn.addEventListener('click', () => navigateToSection('home'));
