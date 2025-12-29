@@ -4471,12 +4471,13 @@
         <div class="premium-prompt-box" style="max-width: 500px; padding: 40px;">
             <div
                 style="width: 70px; height: 70px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                <i class="fab fa-whatsapp" style="font-size: 2.5rem; color: #25D366;"></i>
+                <i class="fas fa-envelope" style="font-size: 2.5rem; color: #25D366;"></i>
             </div>
             <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px;">Final Step: Send
                 Confirmation</h2>
-            <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">WhatsApp will open shortly.
-                Please follow these steps:</p>
+            <p style="color: #666; font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">Your default email client
+                will open.
+                Please attach the downloaded image.</p>
 
             <div
                 style="text-align: left; background: #f9f9f9; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
@@ -4508,7 +4509,7 @@
             </div>
 
             <button class="btn btn-success" id="final-proceed-whatsapp" style="width: 100%; padding: 18px;">
-                <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> Open WhatsApp & Send
+                <i class="fas fa-envelope" style="margin-right: 10px;"></i> Send via Email
             </button>
         </div>
     </div>
@@ -4963,7 +4964,7 @@
                 tags: ["tshirts", "winter"],
                 featured: true
             },
-             {
+            {
                 id: 308,
                 name: "tshirt -Half sleeve",
                 price: 315,
@@ -5060,9 +5061,9 @@
                     "https://github.com/ShabariES/OkayBruh/blob/main/h3.jpeg?raw=true",
                     "https://github.com/ShabariES/OkayBruh/blob/main/h3.jpeg?raw=true"
                 ],
-                description: "Premium tshirt with brushed interior.",
+                description: "Premium hoodie with brushed interior.",
                 stock: 25,
-                tags: ["tshirts", "summer"],
+                tags: ["hoodies", "summer"],
                 featured: true
             },
             {
@@ -5696,7 +5697,7 @@
                 saveCart();
                 updateCartCount();
             });
-            openWhatsappFinalBtn.addEventListener('click', handleWhatsAppSharing);
+            openWhatsappFinalBtn.addEventListener('click', handleEmailSharing);
             copyOrderSummaryBtn.addEventListener('click', copyOrderSummary);
 
             // WhatsApp Integration
@@ -5705,7 +5706,7 @@
             uploadArea.addEventListener('drop', handleFileDrop);
             paymentScreenshotInput.addEventListener('change', handleFileSelect);
             removeScreenshotBtn.addEventListener('click', removeScreenshot);
-            shareWhatsappBtn.addEventListener('click', shareOnWhatsApp);
+            shareWhatsappBtn.addEventListener('click', shareViaEmail);
 
             // Admin
             backToShopBtn.addEventListener('click', () => navigateToSection('home'));
@@ -6389,8 +6390,8 @@
             saveCart();
             updateCartCount();
 
-            // Direct WhatsApp Flow (No intermediate modal)
-            handleWhatsAppSharing();
+            // Direct Email Flow (No intermediate modal)
+            handleEmailSharing();
         }
 
         function validateShippingDetails() {
@@ -6454,7 +6455,7 @@
 
             summary += `---\n`;
             summary += `Please attach payment screenshot with this message.\n`;
-            summary += `WhatsApp: ${APP_CONFIG.whatsappNumber}\n`;
+            summary += `Send to Email: shabaries2866@gmail.com\n`;
 
             orderSummaryText.textContent = summary;
         }
@@ -6546,7 +6547,7 @@
             paymentScreenshotInput.value = '';
         }
 
-        async function shareOnWhatsApp() {
+        async function shareViaEmail() {
             if (!currentOrder) {
                 showNotification('No order found. Please complete the payment first.', 'error');
                 return;
@@ -6557,7 +6558,7 @@
                 return;
             }
 
-            await handleWhatsAppSharing();
+            await handleEmailSharing();
         }
 
         // Helper: Convert Data URL to File object for sharing
@@ -6570,60 +6571,56 @@
             return new File([u8arr], filename, { type: mime });
         }
 
-        async function handleWhatsAppSharing() {
+        async function handleEmailSharing() {
             if (!currentOrder) {
                 showNotification('Please complete the order first', 'error');
                 return;
             }
 
-            // Prepare message
-            let message = `*${APP_CONFIG.appName} - Order Confirmation*\n\n`;
-            message += `*Order ID:* ${currentOrder.id}\n`;
-            message += `*Date:* ${new Date(currentOrder.date).toLocaleDateString('en-IN')}\n\n`;
+            // Prepare Email Content
+            const subject = `Order Confirmation - ${currentOrder.id}`;
+            let body = `Hello OkayBruh Team,\n\nI have placed an order. Here are the details:\n\n`;
+            body += `Order ID: ${currentOrder.id}\n`;
+            body += `Date: ${new Date(currentOrder.date).toLocaleDateString('en-IN')}\n\n`;
 
-            message += `*Customer Details:*\n`;
-            message += `Name: ${currentOrder.shipping.name}\n`;
-            message += `Phone: ${currentOrder.shipping.phone}\n`;
-            message += `Address: ${currentOrder.shipping.address}, ${currentOrder.shipping.city} - ${currentOrder.shipping.pincode}\n\n`;
+            body += `Customer Details:\n`;
+            body += `Name: ${currentOrder.shipping.name}\n`;
+            body += `Phone: ${currentOrder.shipping.phone}\n`;
+            body += `Address: ${currentOrder.shipping.address}, ${currentOrder.shipping.city} - ${currentOrder.shipping.pincode}\n\n`;
 
-            message += `*Summary:*\n`;
+            body += `Order Summary:\n`;
             currentOrder.items.forEach((item, index) => {
-                message += `${index + 1}. ${item.name} (${item.size || 'L'}) x${item.quantity}\n`;
+                body += `${index + 1}. ${item.name} (${item.size || 'L'}) x${item.quantity}\n`;
             });
 
-            message += `\n*Total:* ₹${currentOrder.total.toLocaleString()}\n`;
-            message += `*Payment:* ${currentOrder.paymentMethod.toUpperCase()}\n\n`;
-            message += `Direct Order Proof Attached.`;
+            body += `\nTotal Amount: ₹${currentOrder.total.toLocaleString()}\n`;
+            body += `Payment Method: ${currentOrder.paymentMethod.toUpperCase()}\n`;
+            body += `Status: ${currentOrder.status}\n\n`;
+            body += `[Note: I have attached the order image/payment proof with this email]\n`;
 
-            // Auto-copy to clipboard as secondary backup
+            // Download the image for the user to attach
             try {
-                const tempMsg = generateOrderSummaryForClipboard();
-                navigator.clipboard.writeText(tempMsg);
-            } catch (e) { }
-
-            try {
-                // 1. Generate Combined Image (Screenshot + Details)
+                showNotification('Generating order image...', 'info');
                 const combinedDataUrl = await generateCombinedImage();
-                const file = dataURLtoFile(combinedDataUrl || uploadedScreenshot, `order-${currentOrder.id}.png`);
-
-                // 2. Try to use Web Share API (Best for Mobile)
-                if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-                    await navigator.share({
-                        files: [file],
-                        title: 'Order Confirmation - ' + currentOrder.id,
-                        text: message
-                    });
-                    showNotification('Order shared successfully!', 'success');
-                    return;
+                if (combinedDataUrl) {
+                    const link = document.createElement('a');
+                    link.href = combinedDataUrl;
+                    link.download = `ORDR-${currentOrder.id}.png`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    showNotification('Order image downloaded! Please attach it to the email.', 'success');
                 }
-            } catch (err) {
-                console.error('Direct share failed:', err);
+            } catch (e) {
+                console.error("Image generation failed", e);
+                showNotification('Could not generate image, but opening email...', 'warning');
             }
 
-            // Fallback: Redirect directly to WhatsApp URL
-            const directUrl = `${APP_CONFIG.whatsappUrl}?text=${encodeURIComponent(message)}`;
-            window.open(directUrl, '_blank');
-            showNotification(`Redirecting to WhatsApp for ${APP_CONFIG.whatsappNumber}...`, 'info');
+            // Open Mail Client
+            setTimeout(() => {
+                const emailUrl = `mailto:shabaries2866@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = emailUrl;
+            }, 1500);
         }
 
         // NEW: Merge Order Details onto Screenshot for 'Direct' Sharing
