@@ -4569,6 +4569,75 @@
         // Initial products data
         let products = [
             // TEES (Regular, Oversized, Baggy)
+             {
+                id: 97,
+                name: "Jana Nayagan",
+                price: 469,
+                category: "Regular",
+                gender: "unisex",
+                subCategory: "regular",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/jan2.jpeg",
+                images: [
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/jan2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/jan1.jpeg"
+                ],
+                description: "Soft peach oversized tee with dropped shoulders.",
+                stock: 45,
+                tags: ["tees", "regular", "cotton"],
+                exclusive: true
+            },
+
+            {
+                id: 98,
+                name: "Jana Nayagan",
+                price: 469,
+                category: "Regular",
+                gender: "unisex",
+                subCategory: "regular",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/v2.jpeg",
+                images: [
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/v2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/v1.jpeg"
+                ],
+                description: "Soft peach oversized tee with dropped shoulders.",
+                stock: 45,
+                tags: ["tees", "regular", "cotton"],
+                exclusive: true
+            },
+            {
+                id: 99,
+                name: "Mankatha ",
+                price: 469,
+                category: "Regular",
+                gender: "unisex",
+                subCategory: "regular",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/M1.jpeg",
+                images: [
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/m2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/M1.jpeg"
+                ],
+                description: "Soft peach oversized tee with dropped shoulders.",
+                stock: 45,
+                tags: ["tees", "regular", "cotton"],
+                exclusive: true
+            },
+            {
+                id: 100,
+                name: "Ajith Kumar - Racing ",
+                price: 469,
+                category: "Regular",
+                gender: "unisex",
+                subCategory: "regular",
+                image: "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/ak2.jpeg",
+                images: [
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/ak2.jpeg",
+                    "https://raw.githubusercontent.com/ShabariES/OkayBruh/main/ak1.jpeg"
+                ],
+                description: "Soft peach oversized tee with dropped shoulders.",
+                stock: 45,
+                tags: ["tees", "regular", "cotton"],
+                exclusive: true
+            },
             {
                 id: 101,
                 name: "Chainman Saw - Denji ",
@@ -5135,6 +5204,7 @@
                 tags: ["jerseys", "summer"],
                 featured: true
             },
+
             // {
             //     id: 302,
             //     name: "Charcoal Grey Tech Sweater",
@@ -5913,6 +5983,7 @@
             card.innerHTML = `
                 <div class="product-image">
                     ${imageSliderHTML}
+                    ${product.exclusive ? '<div class="product-badge" style="background-color: #ff4757;">Exclusive</div>' : ''}
                     ${product.featured ? '<div class="product-badge">Featured</div>' : ''}
                     ${product.stock < 10 ? '<div class="product-badge" style="background-color: #ff4757;">Low Stock</div>' : ''}
                     <div class="product-wishlist" onclick="event.stopPropagation(); toggleWishlist('${product.id}')">
